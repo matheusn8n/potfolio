@@ -129,39 +129,43 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:.9rem 5vw;display:fl
 
 /* ── SERVICES ── */
 .srv-section{background:var(--bg2);border-top:1px solid var(--border)}
-.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:3rem}
-.srv-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:2rem;position:relative;overflow:hidden;transition:all .25s;cursor:none}
-.srv-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:transparent}
-.srv-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:12px 12px 0 0;opacity:0;transition:opacity .25s}
-.srv-card:hover::before{opacity:1}
-.srv-card.v-indigo::before{background:linear-gradient(90deg,var(--indigo),var(--violet))}
-.srv-card.v-lime::before{background:linear-gradient(90deg,var(--lime),var(--teal))}
-.srv-card.v-amber::before{background:linear-gradient(90deg,var(--amber),var(--rose))}
-.srv-card.v-violet::before{background:linear-gradient(90deg,var(--violet),var(--indigo))}
-.srv-card.v-teal::before{background:linear-gradient(90deg,var(--teal),var(--lime))}
-.srv-card.v-rose::before{background:linear-gradient(90deg,var(--rose),var(--amber))}
-.srv-num{font-family:'Space Grotesk',sans-serif;font-size:4rem;font-weight:700;color:var(--border);line-height:1;position:absolute;top:.8rem;right:1.2rem;pointer-events:none;transition:color .25s}
-.srv-card:hover .srv-num{color:var(--border2)}
-.srv-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:1.2rem}
-.v-indigo .srv-icon{background:var(--indigo-l);color:var(--indigo)}
-.v-lime .srv-icon{background:var(--lime-l);color:var(--lime)}
-.v-amber .srv-icon{background:var(--amber-l);color:var(--amber)}
-.v-violet .srv-icon{background:var(--violet-l);color:var(--violet)}
-.v-teal .srv-icon{background:var(--teal-l);color:var(--teal)}
-.v-rose .srv-icon{background:var(--rose-l);color:var(--rose)}
-.srv-card h3{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1rem;margin-bottom:.5rem;color:var(--ink)}
-.srv-card p{color:var(--muted);font-size:.82rem;line-height:1.75}
-.srv-tags{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:1rem}
-.tag{font-size:.62rem;font-weight:500;padding:.2rem .55rem;background:var(--bg2);color:var(--muted);border-radius:100px;border:1px solid var(--border)}
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.srv-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.8rem;position:relative;overflow:hidden;transition:all .3s;cursor:none;display:flex;flex-direction:column;gap:.5rem}
+.srv-card:hover{transform:translateY(-5px);box-shadow:0 20px 48px rgba(15,17,23,.1);border-color:var(--srv-color,rgba(67,56,202,.25))}
+.srv-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--srv-grad,linear-gradient(90deg,var(--indigo),var(--violet)));transform:scaleX(0);transform-origin:left;transition:transform .35s ease}
+.srv-card:hover::after{transform:scaleX(1)}
+.srv-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:.6rem}
+.srv-ico{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;transition:transform .3s}
+.srv-card:hover .srv-ico{transform:scale(1.08)}
+.srv-step{font-family:'Space Grotesk',sans-serif;font-size:.78rem;font-weight:800;color:var(--muted);letter-spacing:.04em;background:var(--bg2);border:1px solid var(--border);padding:.2rem .55rem;border-radius:100px}
+.srv-card h3{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem;color:var(--ink);line-height:1.25;margin-bottom:.1rem}
+.srv-card p{font-size:.82rem;color:var(--muted);line-height:1.75;flex:1}
+.srv-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.8rem}
+.srv-tag{font-size:.62rem;font-weight:600;padding:.22rem .6rem;border-radius:100px;border:1px solid;transition:all .2s}
+.srv-card:hover .srv-tag{opacity:.9}
+@media(max-width:1024px){.srv-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.srv-grid{grid-template-columns:1fr}}
 
 /* ── AUDIENCES ── */
 .aud-section{border-top:1px solid var(--border)}
-.aud-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:2.5rem}
-.aud-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.3rem;transition:all .25s}
-.aud-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:rgba(67,56,202,.2)}
-.aud-icon{font-size:1.5rem;margin-bottom:.7rem}
-.aud-card h4{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.88rem;margin-bottom:.35rem;color:var(--ink)}
-.aud-card p{font-size:.75rem;color:var(--muted);line-height:1.6}
+.aud-marquee-wrap{margin-top:2.5rem;overflow:hidden;mask-image:linear-gradient(90deg,transparent,black 10%,black 90%,transparent)}
+.aud-marquee{display:flex;gap:1rem;animation:marqueeScroll 28s linear infinite;width:max-content}
+.aud-marquee:hover{animation-play-state:paused}
+.aud-chip{display:flex;align-items:center;gap:.7rem;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:.8rem 1.2rem;white-space:nowrap;transition:all .25s;cursor:default;flex-shrink:0}
+.aud-chip:hover{border-color:rgba(67,56,202,.3);background:var(--indigo-l);transform:translateY(-2px);box-shadow:0 6px 20px rgba(67,56,202,.1)}
+.aud-chip:hover .ach-icon{background:rgba(67,56,202,.15)}
+.ach-icon{width:36px;height:36px;border-radius:9px;background:var(--bg2);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;transition:background .2s}
+.ach-body{}
+.ach-name{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.82rem;color:var(--ink)}
+.ach-desc{font-size:.68rem;color:var(--muted);margin-top:.1rem}
+@keyframes marqueeScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.aud-trigger{margin-top:2.5rem;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:2rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center}
+.at-text h3{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.05rem;color:var(--ink);margin-bottom:.5rem}
+.at-text p{font-size:.83rem;color:var(--muted);line-height:1.7}
+.at-checks{display:flex;flex-direction:column;gap:.4rem;margin-top:1rem}
+.at-check{display:flex;align-items:center;gap:.5rem;font-size:.78rem;color:var(--muted)}
+.at-check::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--indigo);flex-shrink:0}
+@media(max-width:768px){.aud-trigger{grid-template-columns:1fr}}
 .seg-tabs{display:flex;gap:.4rem;flex-wrap:wrap;margin:2.5rem 0 1.2rem}
 .seg-tab{padding:.5rem 1.1rem;font-size:.78rem;font-weight:500;cursor:none;transition:all .2s;border:1px solid var(--border);background:var(--card);color:var(--muted);border-radius:8px}
 .seg-tab.active{background:var(--ink);color:#fff;border-color:var(--ink)}
@@ -172,13 +176,30 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:.9rem 5vw;display:fl
 .seg-item::before{content:'◆';color:var(--indigo);font-size:.38rem;flex-shrink:0}
 
 /* ── HOW ── */
-.how-section{background:var(--bg2);border-top:1px solid var(--border)}
-.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:3rem}
-.how-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.8rem;position:relative;transition:all .25s}
-.how-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
-.how-num{font-family:'Space Grotesk',sans-serif;font-size:2.5rem;font-weight:700;color:var(--border);line-height:1;margin-bottom:.8rem;letter-spacing:-.04em}
-.how-card h3{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.95rem;margin-bottom:.4rem;color:var(--ink)}
-.how-card p{font-size:.8rem;color:var(--muted);line-height:1.7}
+.how-section{background:var(--ink);border-top:none}
+.how-section .eyebrow{color:rgba(165,180,252,.7)}
+.how-section .section-h{color:#fff}
+.how-timeline-wrap{margin-top:3.5rem;position:relative}
+.how-timeline-wrap::before{content:'';position:absolute;left:28px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,rgba(99,102,241,.6),rgba(99,102,241,.05));pointer-events:none}
+.how-step{display:flex;gap:2rem;padding-bottom:2.5rem;position:relative;align-items:flex-start}
+.how-step:last-child{padding-bottom:0}
+.how-step-dot{width:56px;height:56px;border-radius:14px;background:rgba(99,102,241,.15);border:1px solid rgba(99,102,241,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;z-index:1;position:relative;transition:all .3s}
+.how-step-dot span{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:.9rem;color:#A5B4FC}
+.how-step:hover .how-step-dot{background:rgba(99,102,241,.3);border-color:#6366F1;box-shadow:0 0 24px rgba(99,102,241,.25)}
+.how-step-body{padding-top:.6rem;flex:1}
+.how-step-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem;color:#F1F5F9;margin-bottom:.4rem}
+.how-step-desc{font-size:.83rem;color:rgba(255,255,255,.45);line-height:1.75;max-width:560px}
+.how-step-tag{display:inline-block;margin-top:.6rem;font-family:'Space Grotesk',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .6rem;border-radius:100px;background:rgba(99,102,241,.15);color:#A5B4FC;border:1px solid rgba(99,102,241,.2)}
+.how-cols{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.how-visual-panel{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:2rem;position:sticky;top:6rem}
+.hvp-title{font-family:'Space Grotesk',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:1.2rem}
+.hvp-step{display:flex;align-items:center;gap:.8rem;padding:.65rem .8rem;border-radius:8px;margin-bottom:.4rem;transition:all .3s;opacity:.35}
+.hvp-step.hvp-done{background:rgba(99,102,241,.1);opacity:1}
+.hvp-step.hvp-active{background:rgba(99,102,241,.2);border:1px solid rgba(99,102,241,.3);opacity:1}
+.hvp-ico{width:28px;height:28px;border-radius:7px;background:rgba(99,102,241,.2);display:flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0}
+.hvp-label{font-family:'Space Grotesk',sans-serif;font-size:.78rem;font-weight:600;color:#E2E8F0}
+.hvp-sub{font-size:.65rem;color:rgba(255,255,255,.35)}
+@media(max-width:1024px){.how-cols{grid-template-columns:1fr}.how-visual-panel{display:none}}
 .how-arrow{position:absolute;top:1.8rem;right:-0.8rem;width:1.6rem;height:1.6rem;background:var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;z-index:1;color:var(--muted)}
 
 /* ── PROJECTS ── */
@@ -296,16 +317,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:.9rem 5vw;display:fl
 .pfm .pl{font-size:.6rem;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.06em;margin-top:.25rem}
 
 /* ── OTHER PROJECTS ── */
-.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:1.5rem}
+.proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.8rem;margin-top:2rem}
 .proj-card{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:all .25s}
 .proj-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
-.proj-card-header{padding:1.5rem 1.5rem 1rem;position:relative}
-.proj-card-anim{height:140px;border-radius:8px;overflow:hidden;position:relative;margin-bottom:1rem}
-.proj-badge{display:inline-block;font-family:'Space Grotesk',sans-serif;font-size:.58rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .55rem;border-radius:100px;margin-bottom:.7rem}
-.proj-card h3{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.95rem;color:var(--ink);margin-bottom:.4rem}
-.proj-card p{font-size:.78rem;color:var(--muted);line-height:1.7;padding:0 1.5rem 1rem}
-.proj-feats{list-style:none;padding:0 1.5rem 1.5rem;border-top:1px solid var(--border2);padding-top:1rem;margin-top:0}
-.proj-feats li{display:flex;align-items:center;gap:.5rem;font-size:.76rem;color:var(--muted);padding:.2rem 0}
+.proj-card-header{padding:1.8rem 1.8rem 1rem;position:relative}
+.proj-card-anim{height:180px;border-radius:10px;overflow:hidden;position:relative;margin-bottom:1.2rem}
+.proj-badge{display:inline-block;font-family:'Space Grotesk',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.35rem .8rem;border-radius:100px;margin-bottom:.9rem}
+.proj-card h3{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.05rem;color:var(--ink);margin-bottom:.5rem}
+.proj-card p{font-size:.82rem;color:var(--muted);line-height:1.75;padding:0 1.8rem 1.1rem}
+.proj-feats{list-style:none;padding:0 1.8rem 1.8rem;border-top:1px solid var(--border2);padding-top:1.1rem;margin-top:0}
+.proj-feats li{display:flex;align-items:center;gap:.5rem;font-size:.8rem;color:var(--muted);padding:.25rem 0}
 .proj-feats li::before{content:'';width:5px;height:5px;border-radius:50%;flex-shrink:0}
 
 /* proj 03 — follow-up timeline */
@@ -406,35 +427,33 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:.9rem 5vw;display:fl
 
 /* ── BEFORE / AFTER ── */
 .ba-section{border-top:1px solid var(--border)}
-.ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3rem}
-.ba-col{border-radius:12px;padding:2rem}
-.ba-col.before{background:rgba(220,38,38,.03);border:1px solid rgba(220,38,38,.1)}
-.ba-col.after{background:rgba(67,56,202,.03);border:1px solid rgba(67,56,202,.12)}
-.ba-head{font-family:'Space Grotesk',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.25rem .7rem;border-radius:100px;display:inline-block;margin-bottom:1.5rem}
-.ba-head.b{background:rgba(220,38,38,.08);color:var(--rose)}
-.ba-head.a{background:var(--indigo-l);color:var(--indigo)}
-.ba-list{list-style:none;display:flex;flex-direction:column;gap:.55rem}
-.ba-list li{display:flex;align-items:flex-start;gap:.55rem;font-size:.82rem;color:var(--ink);line-height:1.5}
+.ba-gains{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;margin-top:3rem}
+.ba-gain{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.6rem;display:flex;gap:1.1rem;align-items:flex-start;transition:all .25s;position:relative;overflow:hidden}
+.ba-gain::after{content:'';position:absolute;inset:0;border-radius:14px;background:linear-gradient(135deg,var(--gain-c1,rgba(67,56,202,.03)),transparent);pointer-events:none}
+.ba-gain:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(15,17,23,.07);border-color:var(--gain-border,rgba(67,56,202,.2))}
+.bg-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.1rem}
+.bg-body{}
+.bg-label{font-family:'Space Grotesk',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.3rem}
+.bg-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.95rem;color:var(--ink);margin-bottom:.35rem;line-height:1.25}
+.bg-desc{font-size:.8rem;color:var(--muted);line-height:1.65}
+.bg-pills{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.7rem;align-items:center}.bg-pill-before{font-family:'Space Grotesk',sans-serif;font-size:.62rem;font-weight:600;padding:.22rem .65rem;border-radius:100px;background:rgba(220,38,38,.08);color:var(--rose);border:1px solid rgba(220,38,38,.15);display:flex;align-items:center;gap:.3rem;white-space:nowrap}.bg-pill-before strong{font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;opacity:.7;margin-right:.1rem}.bg-pill-after{font-family:'Space Grotesk',sans-serif;font-size:.62rem;font-weight:700;padding:.22rem .65rem;border-radius:100px;display:flex;align-items:center;gap:.3rem;white-space:nowrap}.bg-pill-after strong{font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;opacity:.7;margin-right:.1rem}.bg-pill-arrow{font-size:.7rem;color:var(--muted)}
+@media(max-width:640px){.ba-gains{grid-template-columns:1fr}}
 
 /* ── DIFF ── */
 .diff-section{background:var(--bg2);border-top:1px solid var(--border)}
-.diff-quote{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.1rem,1.8vw,1.5rem);font-weight:600;line-height:1.45;color:var(--ink);max-width:800px;padding:2rem 2.2rem;background:var(--card);border:1px solid var(--border);border-left:4px solid var(--indigo);border-radius:0 12px 12px 0;margin:2.5rem 0;letter-spacing:-.01em}
-.diff-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:2rem}
-.diff-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.4rem;transition:all .25s}
-.diff-card:hover{border-color:rgba(67,56,202,.25);transform:translateY(-2px)}
-.diff-icon{width:40px;height:40px;border-radius:10px;background:var(--bg2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;margin-bottom:.9rem;color:var(--indigo);transition:all .25s}
-.diff-card:hover .diff-icon{background:var(--indigo-l);border-color:rgba(67,56,202,.2)}
-.diff-card p{font-size:.78rem;color:var(--muted);line-height:1.65}
-/* image diff cards */
-.diff-card{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:all .25s;padding:0}
-.diff-card:hover{border-color:rgba(67,56,202,.25);transform:translateY(-3px);box-shadow:0 12px 32px rgba(15,17,23,.1)}
-.dc-img{height:120px;position:relative;overflow:hidden}
-.dc-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
-.diff-card:hover .dc-img img{transform:scale(1.06)}
-.dc-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(13,15,20,.1),rgba(13,15,20,.55))}
-.dc-label{position:absolute;bottom:.6rem;left:.8rem;right:.8rem;z-index:1}
-.dc-label span{font-family:'Space Grotesk',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7);background:rgba(13,15,20,.4);padding:.2rem .5rem;border-radius:4px;backdrop-filter:blur(4px)}
-.dc-body{padding:1rem 1.1rem}
+.diff-section{background:var(--bg2);border-top:1px solid var(--border)}
+.diff-quote{font-family:'Space Grotesk',sans-serif;font-size:clamp(1rem,1.6vw,1.35rem);font-weight:600;line-height:1.5;color:var(--ink);max-width:780px;padding:1.6rem 2rem;background:var(--card);border:1px solid var(--border);border-left:4px solid var(--indigo);border-radius:0 12px 12px 0;margin:2rem 0 2.5rem;letter-spacing:-.01em}
+.diff-list{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden}
+.diff-row{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1.2rem;padding:1.2rem 1.5rem;border-bottom:1px solid var(--border2);transition:background .2s}
+.diff-row:hover{background:var(--bg)}
+.dr-left{display:flex;align-items:center;gap:.75rem}
+.dr-num{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.72rem;color:var(--muted);letter-spacing:.05em;min-width:20px}
+.dr-icon{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.dr-body{flex:1}
+.dr-title{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.88rem;color:var(--ink);margin-bottom:.2rem}
+.dr-text{font-size:.78rem;color:var(--muted);line-height:1.55}
+.dr-tag{font-family:'Space Grotesk',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.25rem .7rem;border-radius:100px;white-space:nowrap}
+@media(max-width:640px){.diff-row{grid-template-columns:auto 1fr}.dr-tag{display:none}}
 
 /* ── CTA ── */
 .cta-section{background:var(--ink);position:relative;overflow:hidden}
@@ -458,11 +477,11 @@ footer{background:#07080D;border-top:1px solid rgba(255,255,255,.06);padding:2re
 @media(max-width:1024px){
   .hero-inner{grid-template-columns:1fr;gap:3rem}
   .srv-grid{grid-template-columns:repeat(2,1fr)}
-  .aud-grid{grid-template-columns:repeat(2,1fr)}
-  .proj-grid{grid-template-columns:repeat(2,1fr)}
+  
+  .proj-grid{grid-template-columns:1fr}
   .ben-grid{grid-template-columns:repeat(2,1fr)}
-  .diff-grid{grid-template-columns:repeat(2,1fr)}
-  .how-grid{grid-template-columns:repeat(2,1fr)}
+  
+  
   .stats-inner{grid-template-columns:repeat(2,1fr)}
   .dw-krow{grid-template-columns:repeat(3,1fr)}
   .nav-links,.nav-cta{display:none}
@@ -470,8 +489,7 @@ footer{background:#07080D;border-top:1px solid rgba(255,255,255,.06);padding:2re
   .dw-g2,.da-g2{grid-template-columns:1fr}
 }
 @media(max-width:640px){
-  .srv-grid,.aud-grid,.proj-grid,.ben-grid,.diff-grid,.how-grid{grid-template-columns:1fr}
-  .ba-grid{grid-template-columns:1fr}
+  .srv-grid,.proj-grid,.ben-grid,.diff-grid{grid-template-columns:1fr}
   .stats-inner{grid-template-columns:1fr 1fr}
   .pf-metrics{grid-template-columns:repeat(2,1fr)}
   .dw-krow{grid-template-columns:repeat(2,1fr)}
@@ -545,7 +563,7 @@ footer{background:#07080D;border-top:1px solid rgba(255,255,255,.06);padding:2re
   <div class="hero-glow"></div>
   <div class="hero-inner">
     <div>
-      <div class="hero-tag">● Avoryn · Automação · IA · Tráfego Pago</div>
+      <div class="hero-tag">Avoryn · Automação · IA · Sites · Tráfego Pago</div>
       <h1>Sua empresa pode operar com muito mais <span>inteligência</span></h1>
       <p class="hero-sub">Transformo tarefas manuais em sistemas inteligentes, conectando IA, automação, dados, documentos, follow-up e tráfego pago em uma operação eficiente e escalável.</p>
       <div class="hero-btns">
@@ -601,24 +619,111 @@ footer{background:#07080D;border-top:1px solid rgba(255,255,255,.06);padding:2re
   <div class="section-wrap">
     <div class="eyebrow reveal">Com o que trabalho</div>
     <h2 class="section-h reveal">Soluções que eliminam o trabalho <em>repetitivo</em></h2>
-    <p class="section-sub reveal">Cada solução desenvolvida sob medida para o tipo e volume da sua operação.</p>
+    <p class="section-sub reveal">Cada solução desenvolvida sob medida para o tipo e volume da operação da sua empresa.</p>
     <div class="srv-grid">
-      <div class="srv-card v-indigo reveal"><div class="srv-num">01</div><div class="srv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></div><h3>Agentes de IA Humanizados</h3><p>Agentes que atendem clientes de forma natural, respondem dúvidas, coletam dados e conduzem atendimentos completos, 24h por dia, sem intervenção.</p><div class="srv-tags"><span class="tag">WhatsApp</span><span class="tag">Texto & Áudio</span><span class="tag">Docs</span></div></div>
-      <div class="srv-card v-lime reveal d1"><div class="srv-num">02</div><div class="srv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><h3>Automações para Empresas</h3><p>Fluxos automáticos conectando ferramentas, planilhas, contratos, APIs e sistemas internos. Tudo que é repetitivo pode e deve ser automatizado.</p><div class="srv-tags"><span class="tag">N8N</span><span class="tag">API</span><span class="tag">Integrações</span></div></div>
-      <div class="srv-card v-amber reveal d2">
-        <div class="srv-num">03</div>
-        <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:1.2rem">
-          <div style="width:44px;height:44px;border-radius:10px;background:var(--amber-l);display:flex;align-items:center;justify-content:center;flex-shrink:0">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--amber)"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+
+      <!-- 01 IA -->
+      <div class="srv-card reveal" style="--srv-color:rgba(67,56,202,.25);--srv-grad:linear-gradient(90deg,var(--indigo),var(--violet))">
+        <div class="srv-top">
+          <div class="srv-ico" style="background:var(--indigo-l);color:var(--indigo)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
           </div>
+          <span class="srv-step">01</span>
         </div>
-        <h3>Dashboards, Follow-up e Automações de Dados</h3>
-        <p>Plataformas personalizadas para acompanhar dados, clientes e métricas em tempo real, integradas às planilhas existentes. Com campanhas de follow-up programadas e pausas estratégicas para que nenhum lead seja esquecido.</p>
-        <div class="srv-tags"><span class="tag">Dashboard</span><span class="tag">Lovable</span><span class="tag">Real-time</span><span class="tag">Campanhas</span><span class="tag">Anti-bloqueio</span></div>
+        <h3>Agentes de IA Humanizados</h3>
+        <p>Agentes que atendem clientes de forma natural, respondem dúvidas, coletam dados e conduzem atendimentos completos. Disponíveis 24h por dia, sem intervenção da equipe.</p>
+        <div class="srv-tags">
+          <span class="srv-tag" style="background:var(--indigo-l);color:var(--indigo);border-color:rgba(67,56,202,.2)">WhatsApp</span>
+          <span class="srv-tag" style="background:var(--indigo-l);color:var(--indigo);border-color:rgba(67,56,202,.2)">Texto & Áudio</span>
+          <span class="srv-tag" style="background:var(--indigo-l);color:var(--indigo);border-color:rgba(67,56,202,.2)">24h</span>
+        </div>
       </div>
-      <div class="srv-card v-teal reveal d1"><div class="srv-num">04</div><div class="srv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div><h3>Tráfego Pago</h3><p>Campanhas de Meta Ads e Google Ads para gerar leads qualificados, integrados diretamente ao sistema de atendimento automático da operação.</p><div class="srv-tags"><span class="tag">Meta Ads</span><span class="tag">Google Ads</span><span class="tag">Funil</span></div></div>
-      <div class="srv-card v-rose reveal d2"><div class="srv-num">05</div><div class="srv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 10l4.553-2.069A1 1 0 0 1 21 8.87v6.26a1 1 0 0 1-1.447.899L15 14"/><rect x="1" y="6" width="14" height="12" rx="2"/></svg></div><h3>Avatares com IA</h3><p>Avatares personalizados em IA para profissionais que querem produzir conteúdo sem aparecer em vídeo: redes sociais, apresentações e comunicação comercial.</p><div class="srv-tags"><span class="tag">Avatar IA</span><span class="tag">Vídeo</span><span class="tag">Conteúdo</span></div></div>
-      <div class="srv-card v-teal reveal"><div class="srv-num">06</div><div class="srv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></div><h3>Sites e Landing Pages</h3><p>Criação de sites profissionais e landing pages de alta conversão, prontos para receber tráfego pago e integrados ao sistema de atendimento automático, do clique ao lead capturado.</p><div class="srv-tags"><span class="tag">Site</span><span class="tag">Landing Page</span><span class="tag">Alta Conversão</span><span class="tag">Tráfego</span></div></div>
+
+      <!-- 02 AUTOMAÇÕES -->
+      <div class="srv-card reveal d1" style="--srv-color:rgba(101,163,13,.25);--srv-grad:linear-gradient(90deg,var(--lime),var(--teal))">
+        <div class="srv-top">
+          <div class="srv-ico" style="background:var(--lime-l);color:var(--lime)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <span class="srv-step">02</span>
+        </div>
+        <h3>Automações para Empresas</h3>
+        <p>Fluxos automáticos conectando ferramentas, planilhas, contratos, APIs e sistemas internos. Tudo que é repetitivo pode e deve ser automatizado com N8N e integrações.</p>
+        <div class="srv-tags">
+          <span class="srv-tag" style="background:var(--lime-l);color:var(--lime);border-color:rgba(101,163,13,.2)">N8N</span>
+          <span class="srv-tag" style="background:var(--lime-l);color:var(--lime);border-color:rgba(101,163,13,.2)">API</span>
+          <span class="srv-tag" style="background:var(--lime-l);color:var(--lime);border-color:rgba(101,163,13,.2)">Integrações</span>
+        </div>
+      </div>
+
+      <!-- 03 DASHBOARDS -->
+      <div class="srv-card reveal d2" style="--srv-color:rgba(180,83,9,.25);--srv-grad:linear-gradient(90deg,var(--amber),var(--rose))">
+        <div class="srv-top">
+          <div class="srv-ico" style="background:var(--amber-l);color:var(--amber)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          </div>
+          <span class="srv-step">03</span>
+        </div>
+        <h3>Dashboards e Follow-up</h3>
+        <p>Plataformas para acompanhar dados, clientes e métricas em tempo real. Com campanhas de follow-up programadas e pausas estratégicas para que nenhum lead seja esquecido.</p>
+        <div class="srv-tags">
+          <span class="srv-tag" style="background:var(--amber-l);color:var(--amber);border-color:rgba(180,83,9,.2)">Dashboard</span>
+          <span class="srv-tag" style="background:var(--amber-l);color:var(--amber);border-color:rgba(180,83,9,.2)">Follow-up</span>
+          <span class="srv-tag" style="background:var(--amber-l);color:var(--amber);border-color:rgba(180,83,9,.2)">Anti-bloqueio</span>
+        </div>
+      </div>
+
+      <!-- 04 TRÁFEGO -->
+      <div class="srv-card reveal" style="--srv-color:rgba(13,148,136,.25);--srv-grad:linear-gradient(90deg,var(--teal),var(--lime))">
+        <div class="srv-top">
+          <div class="srv-ico" style="background:var(--teal-l);color:var(--teal)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          </div>
+          <span class="srv-step">04</span>
+        </div>
+        <h3>Tráfego Pago</h3>
+        <p>Campanhas de Meta Ads e Google Ads para gerar leads qualificados, integrados diretamente ao sistema de atendimento automático da operação.</p>
+        <div class="srv-tags">
+          <span class="srv-tag" style="background:var(--teal-l);color:var(--teal);border-color:rgba(13,148,136,.2)">Meta Ads</span>
+          <span class="srv-tag" style="background:var(--teal-l);color:var(--teal);border-color:rgba(13,148,136,.2)">Google Ads</span>
+          <span class="srv-tag" style="background:var(--teal-l);color:var(--teal);border-color:rgba(13,148,136,.2)">Funil</span>
+        </div>
+      </div>
+
+      <!-- 05 AVATARES -->
+      <div class="srv-card reveal d1" style="--srv-color:rgba(190,18,60,.25);--srv-grad:linear-gradient(90deg,var(--rose),var(--violet))">
+        <div class="srv-top">
+          <div class="srv-ico" style="background:var(--rose-l);color:var(--rose)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 10l4.553-2.069A1 1 0 0 1 21 8.87v6.26a1 1 0 0 1-1.447.899L15 14"/><rect x="1" y="6" width="14" height="12" rx="2"/></svg>
+          </div>
+          <span class="srv-step">05</span>
+        </div>
+        <h3>Avatares com IA</h3>
+        <p>Avatares personalizados em IA para profissionais que querem produzir conteúdo sem aparecer em vídeo. Redes sociais, apresentações e comunicação comercial em escala.</p>
+        <div class="srv-tags">
+          <span class="srv-tag" style="background:var(--rose-l);color:var(--rose);border-color:rgba(190,18,60,.2)">Avatar IA</span>
+          <span class="srv-tag" style="background:var(--rose-l);color:var(--rose);border-color:rgba(190,18,60,.2)">Vídeo</span>
+          <span class="srv-tag" style="background:var(--rose-l);color:var(--rose);border-color:rgba(190,18,60,.2)">Conteúdo</span>
+        </div>
+      </div>
+
+      <!-- 06 SITES -->
+      <div class="srv-card reveal d2" style="--srv-color:rgba(3,105,161,.25);--srv-grad:linear-gradient(90deg,#0369A1,#0891B2)">
+        <div class="srv-top">
+          <div class="srv-ico" style="background:#E0F2FE;color:#0369A1">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+          </div>
+          <span class="srv-step">06</span>
+        </div>
+        <h3>Sites e Landing Pages</h3>
+        <p>Páginas profissionais de alta conversão prontas para receber tráfego pago, integradas ao sistema de atendimento automático do clique ao lead capturado.</p>
+        <div class="srv-tags">
+          <span class="srv-tag" style="background:#E0F2FE;color:#0369A1;border-color:rgba(3,105,161,.2)">Site</span>
+          <span class="srv-tag" style="background:#E0F2FE;color:#0369A1;border-color:rgba(3,105,161,.2)">Landing Page</span>
+          <span class="srv-tag" style="background:#E0F2FE;color:#0369A1;border-color:rgba(3,105,161,.2)">Alta Conversão</span>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -628,17 +733,52 @@ footer{background:#07080D;border-top:1px solid rgba(255,255,255,.06);padding:2re
 <section class="aud-section" id="segmentos">
   <div class="section-wrap">
     <div class="eyebrow reveal">Para quais empresas</div>
-    <h2 class="section-h reveal">Soluções para quem quer atender, organizar e <em>vender melhor</em></h2>
-    <p class="section-sub reveal">Se sua empresa ainda depende de processos manuais, planilhas desorganizadas ou follow-up no improviso. Existe uma oportunidade real de automatizar.</p>
-    <div class="aud-grid">
-      <div class="aud-card reveal"><div class="aud-icon">⚖️</div><h4>Escritórios de Advocacia</h4><p>Atendimento de leads, documentos, contratos e gestão automatizados.</p></div>
-      <div class="aud-card reveal d1"><div class="aud-icon">💆</div><h4>Clínicas de Estética</h4><p>Atendimento inicial, pré-qualificação e reativação de clientes.</p></div>
-      <div class="aud-card reveal d2"><div class="aud-icon">🏥</div><h4>Clínicas Médicas</h4><p>Organização de contatos, captação e acompanhamento de agendamentos.</p></div>
-      <div class="aud-card reveal d3"><div class="aud-icon">🏢</div><h4>Empresas de Serviços</h4><p>Orçamentos, controle de oportunidades e integração com sistemas.</p></div>
-      <div class="aud-card reveal"><div class="aud-icon">🏘️</div><h4>Negócios Locais</h4><p>Tráfego pago, atendimento automático e campanhas recorrentes.</p></div>
-      <div class="aud-card reveal d1"><div class="aud-icon">💼</div><h4>Consultorias</h4><p>Funis de atendimento, follow-up e dashboard de métricas.</p></div>
-      <div class="aud-card reveal d2"><div class="aud-icon">📈</div><h4>Equipes Comerciais</h4><p>Pipeline automatizado e métricas de conversão em tempo real.</p></div>
-      <div class="aud-card reveal d3"><div class="aud-icon">🏠</div><h4>Imobiliárias</h4><p>Qualificação de leads e acompanhamento automático do funil.</p></div>
+    <h2 class="section-h reveal">Se sua empresa atende clientes, ela pode <em>automatizar</em></h2>
+    <p class="section-sub reveal">As soluções funcionam para qualquer empresa que receba leads, faça atendimentos, gerencie documentos ou precise de mais controle sobre os dados.</p>
+
+    <div class="aud-marquee-wrap reveal">
+      <div class="aud-marquee">
+        <div class="aud-chip"><div class="ach-icon">⚖️</div><div class="ach-body"><div class="ach-name">Advocacia</div><div class="ach-desc">Leads, contratos e documentos</div></div></div>
+      <div class="aud-chip"><div class="ach-icon">💆</div><div class="ach-body"><div class="ach-name">Estética</div><div class="ach-desc">Atendimento e reativação</div></div></div>
+      <div class="aud-chip"><div class="ach-icon">🏥</div><div class="ach-body"><div class="ach-name">Clínicas Médicas</div><div class="ach-desc">Captação e agendamentos</div></div></div>
+      <div class="aud-chip"><div class="ach-icon">🏢</div><div class="ach-body"><div class="ach-name">Serviços</div><div class="ach-desc">Orçamentos e oportunidades</div></div></div>
+      <div class="aud-chip"><div class="ach-icon">🏘️</div><div class="ach-body"><div class="ach-name">Negócios Locais</div><div class="ach-desc">Tráfego pago e campanhas</div></div></div>
+      <div class="aud-chip"><div class="ach-icon">💼</div><div class="ach-body"><div class="ach-name">Consultorias</div><div class="ach-desc">Follow-up e métricas</div></div></div>
+      <div class="aud-chip"><div class="ach-icon">📈</div><div class="ach-body"><div class="ach-name">Equipes Comerciais</div><div class="ach-desc">Pipeline automatizado</div></div></div>
+      <div class="aud-chip"><div class="ach-icon">🏠</div><div class="ach-body"><div class="ach-name">Imobiliárias</div><div class="ach-desc">Qualificação de leads</div></div></div>
+      <div class="aud-chip"><div class="ach-icon">🦷</div><div class="ach-body"><div class="ach-name">Odontologia</div><div class="ach-desc">Agendamentos e follow-up</div></div></div>
+      <div class="aud-chip"><div class="ach-icon">🏋️</div><div class="ach-body"><div class="ach-name">Academias</div><div class="ach-desc">Retenção de alunos</div></div></div>
+      <div class="aud-chip"><div class="ach-icon">🎓</div><div class="ach-body"><div class="ach-name">Educação</div><div class="ach-desc">Captação e matrículas</div></div></div>
+      <div class="aud-chip"><div class="ach-icon">🔧</div><div class="ach-body"><div class="ach-name">Prestadores</div><div class="ach-desc">Orçamentos e contratos</div></div></div>
+      <div class="aud-chip"><div class="ach-icon">⚖️</div><div class="ach-body"><div class="ach-name">Advocacia</div><div class="ach-desc">Leads, contratos e documentos</div></div></div>
+      <div class="aud-chip"><div class="ach-icon">💆</div><div class="ach-body"><div class="ach-name">Estética</div><div class="ach-desc">Atendimento e reativação</div></div></div>
+      <div class="aud-chip"><div class="ach-icon">🏥</div><div class="ach-body"><div class="ach-name">Clínicas Médicas</div><div class="ach-desc">Captação e agendamentos</div></div></div>
+      <div class="aud-chip"><div class="ach-icon">🏢</div><div class="ach-body"><div class="ach-name">Serviços</div><div class="ach-desc">Orçamentos e oportunidades</div></div></div>
+      <div class="aud-chip"><div class="ach-icon">🏘️</div><div class="ach-body"><div class="ach-name">Negócios Locais</div><div class="ach-desc">Tráfego pago e campanhas</div></div></div>
+      <div class="aud-chip"><div class="ach-icon">💼</div><div class="ach-body"><div class="ach-name">Consultorias</div><div class="ach-desc">Follow-up e métricas</div></div></div>
+      <div class="aud-chip"><div class="ach-icon">📈</div><div class="ach-body"><div class="ach-name">Equipes Comerciais</div><div class="ach-desc">Pipeline automatizado</div></div></div>
+      <div class="aud-chip"><div class="ach-icon">🏠</div><div class="ach-body"><div class="ach-name">Imobiliárias</div><div class="ach-desc">Qualificação de leads</div></div></div>
+      <div class="aud-chip"><div class="ach-icon">🦷</div><div class="ach-body"><div class="ach-name">Odontologia</div><div class="ach-desc">Agendamentos e follow-up</div></div></div>
+      <div class="aud-chip"><div class="ach-icon">🏋️</div><div class="ach-body"><div class="ach-name">Academias</div><div class="ach-desc">Retenção de alunos</div></div></div>
+      <div class="aud-chip"><div class="ach-icon">🎓</div><div class="ach-body"><div class="ach-name">Educação</div><div class="ach-desc">Captação e matrículas</div></div></div>
+      <div class="aud-chip"><div class="ach-icon">🔧</div><div class="ach-body"><div class="ach-name">Prestadores</div><div class="ach-desc">Orçamentos e contratos</div></div></div>
+      
+      </div>
+    </div>
+
+    <div class="aud-trigger reveal" style="margin-top:2rem">
+      <div class="at-text">
+        <h3>Sua empresa se encaixa se...</h3>
+        <p>Se algum desses pontos é verdade hoje, existe espaço para automatizar e melhorar a operação.</p>
+        <div class="at-checks">
+          <div class="at-check">Recebe contatos pelo WhatsApp que nem sempre são respondidos rápido</div>
+          <div class="at-check">Tem leads que ficam parados sem follow-up consistente</div>
+          <div class="at-check">Não tem visibilidade clara sobre o que acontece na operação</div>
+          <div class="at-check">Usa planilhas que ficam desatualizadas ou difíceis de encontrar</div>
+          <div class="at-check">A equipe gasta tempo com tarefas que se repetem todo dia</div>
+        </div>
+      </div>
+      <a href="https://wa.me/5553999235976" target="_blank" rel="noopener" class="btn-primary" style="white-space:nowrap">💬 Quero automatizar</a>
     </div>
     <div style="margin-top:3rem">
       <div class="eyebrow" style="margin-bottom:1rem">Exemplos por segmento</div>
@@ -697,14 +837,98 @@ footer{background:#07080D;border-top:1px solid rgba(255,255,255,.06);padding:2re
 <section class="how-section" id="como-funciona">
   <div class="section-wrap">
     <div class="eyebrow reveal">Como funciona</div>
-    <h2 class="section-h reveal">Do diagnóstico à <em>operação rodando</em></h2>
-    <div class="how-grid">
-      <div class="how-card reveal"><div class="how-num">01</div><h3>Diagnóstico</h3><p>Entendo como a empresa funciona, quais tarefas são repetitivas e onde há mais potencial de automação.</p></div>
-      <div class="how-card reveal d1"><div class="how-num">02</div><h3>Planejamento</h3><p>Desenho o fluxo ideal para automatizar atendimento, dados, documentos, follow-up ou operação interna.</p></div>
-      <div class="how-card reveal d2"><div class="how-num">03</div><h3>Criação</h3><p>Desenvolvimento do agente de IA, automação, dashboard ou sistema personalizado conforme o planejado.</p></div>
-      <div class="how-card reveal"><div class="how-num">04</div><h3>Integrações</h3><p>Conexão entre WhatsApp, planilhas, APIs, contratos, CRMs e plataformas de tráfego, tudo junto.</p></div>
-      <div class="how-card reveal d1"><div class="how-num">05</div><h3>Testes</h3><p>Teste completo do fluxo com ajustes em respostas, regras, mensagens, integrações e métricas.</p></div>
-      <div class="how-card reveal d2"><div class="how-num">06</div><h3>Operação</h3><p>A empresa passa a operar com processos automatizados, dados organizados e mais controle sobre tudo.</p></div>
+    <h2 class="section-h reveal">Do primeiro contato à <em>operação rodando</em></h2>
+    <div class="how-cols">
+      <div class="how-timeline-wrap reveal">
+
+        <div class="how-step">
+          <div class="how-step-dot"><span>01</span></div>
+          <div class="how-step-body">
+            <div class="how-step-title">Diagnóstico da operação</div>
+            <div class="how-step-desc">Entendo como a empresa funciona hoje, quais tarefas consomem mais tempo e onde a automação vai gerar mais resultado.</div>
+            <span class="how-step-tag">Reunião inicial · gratuita</span>
+          </div>
+        </div>
+
+        <div class="how-step">
+          <div class="how-step-dot"><span>02</span></div>
+          <div class="how-step-body">
+            <div class="how-step-title">Planejamento do fluxo</div>
+            <div class="how-step-desc">Desenho o fluxo completo da solução — atendimento, dados, documentos, follow-up ou operação interna — antes de escrever uma linha de código.</div>
+            <span class="how-step-tag">Entrega: mapa do sistema</span>
+          </div>
+        </div>
+
+        <div class="how-step">
+          <div class="how-step-dot"><span>03</span></div>
+          <div class="how-step-body">
+            <div class="how-step-title">Criação da solução</div>
+            <div class="how-step-desc">Desenvolvimento do agente de IA, automações, dashboard ou plataforma — conforme o que foi planejado para a realidade da empresa.</div>
+            <span class="how-step-tag">N8N · Lovable · APIs</span>
+          </div>
+        </div>
+
+        <div class="how-step">
+          <div class="how-step-dot"><span>04</span></div>
+          <div class="how-step-body">
+            <div class="how-step-title">Integrações completas</div>
+            <div class="how-step-desc">Conexão com WhatsApp, Google Drive, Sheets, ZapSign, CRMs, APIs externas e plataformas de tráfego — tudo funcionando junto.</div>
+            <span class="how-step-tag">Integrações sem fricção</span>
+          </div>
+        </div>
+
+        <div class="how-step">
+          <div class="how-step-dot"><span>05</span></div>
+          <div class="how-step-body">
+            <div class="how-step-title">Testes e ajustes</div>
+            <div class="how-step-desc">Teste do fluxo completo com ajustes em respostas, regras, mensagens, integrações e métricas até estar pronto para operar.</div>
+            <span class="how-step-tag">Validação ponta a ponta</span>
+          </div>
+        </div>
+
+        <div class="how-step">
+          <div class="how-step-dot" style="background:rgba(99,102,241,.3);border-color:#6366F1"><span style="color:#fff">✓</span></div>
+          <div class="how-step-body">
+            <div class="how-step-title">Operação rodando</div>
+            <div class="how-step-desc">A empresa passa a operar com processos automatizados, dados organizados e controle total da operação — sem depender de tarefas manuais.</div>
+            <span class="how-step-tag" style="background:rgba(74,222,128,.12);color:#16a34a;border-color:rgba(74,222,128,.25)">✓ Resultado entregue</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="how-visual-panel reveal d2">
+        <div class="hvp-title">Progresso do projeto</div>
+        <div class="hvp-step hvp-done">
+          <div class="hvp-ico">🔍</div>
+          <div><div class="hvp-label">Diagnóstico</div><div class="hvp-sub">Processos mapeados</div></div>
+        </div>
+        <div class="hvp-step hvp-done">
+          <div class="hvp-ico">🗺️</div>
+          <div><div class="hvp-label">Planejamento</div><div class="hvp-sub">Fluxo desenhado</div></div>
+        </div>
+        <div class="hvp-step hvp-active">
+          <div class="hvp-ico">⚙️</div>
+          <div><div class="hvp-label">Criação</div><div class="hvp-sub">Em desenvolvimento...</div></div>
+        </div>
+        <div class="hvp-step">
+          <div class="hvp-ico">🔗</div>
+          <div><div class="hvp-label">Integrações</div><div class="hvp-sub">Aguardando</div></div>
+        </div>
+        <div class="hvp-step">
+          <div class="hvp-ico">🧪</div>
+          <div><div class="hvp-label">Testes</div><div class="hvp-sub">Aguardando</div></div>
+        </div>
+        <div class="hvp-step">
+          <div class="hvp-ico">🚀</div>
+          <div><div class="hvp-label">Operação</div><div class="hvp-sub">Em breve</div></div>
+        </div>
+        <div style="margin-top:1.5rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.06)">
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:.6rem;color:rgba(255,255,255,.25);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem">Prazo estimado</div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:1.4rem;font-weight:700;color:#A5B4FC">30–60 dias</div>
+          <div style="font-size:.72rem;color:rgba(255,255,255,.35);margin-top:.2rem">dependendo do projeto e da complexidade</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -778,7 +1002,7 @@ footer{background:#07080D;border-top:1px solid rgba(255,255,255,.06);padding:2re
       <div class="pf-metrics">
         <div class="pfm"><div class="pn"><span class="count" data-t="610">0</span></div><div class="pl">Total leads</div></div>
         <div class="pfm"><div class="pn"><span class="count" data-t="459">0</span></div><div class="pl">Responderam</div></div>
-        <div class="pfm"><div class="pn"><span class="count" data-t="50">0</span></div><div class="pl">Docs enviados</div></div>
+        <div class="pfm"><div class="pn"><span class="count" data-t="101">0</span></div><div class="pl">Docs enviados</div></div>
         <div class="pfm"><div class="pn"><span class="count" data-t="59">0</span></div><div class="pl">Contratos assinados</div></div>
       </div>
       <p style="font-size:.68rem;color:rgba(255,255,255,.25);margin-top:.8rem;font-style:italic">* Dados referentes ao período de teste operacional. Resultados variam conforme volume, segmento e estratégia.</p>
@@ -905,12 +1129,121 @@ footer{background:#07080D;border-top:1px solid rgba(255,255,255,.06);padding:2re
           <li><span style="width:5px;height:5px;border-radius:50%;background:var(--teal);flex-shrink:0;display:block"></span>Vários projetos entregues para diferentes segmentos</li>
         </ul>
       </div>
+      <!-- PROJ 09 — INTIMAÇÕES -->
+      <div class="proj-card reveal">
+        <div class="proj-card-header">
+          <span class="proj-badge" style="background:#FEF3C7;color:#B45309">Projeto 09</span>
+          <div class="proj-card-anim">
+            <div style="background:linear-gradient(135deg,#1A1200,#2D1E00);height:100%;display:flex;flex-direction:column;padding:1rem;gap:.5rem;overflow:hidden;position:relative">
+              <!-- header -->
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.2rem">
+                <div style="font-family:'Space Grotesk',sans-serif;font-size:.6rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.1em">Distribuição de Intimações</div>
+                <div style="font-size:.55rem;color:#FCD34D;font-family:'Space Grotesk',sans-serif;font-weight:700">● AUTOMÁTICO</div>
+              </div>
+              <!-- intimação chegando -->
+              <div id="intim-wrap" style="display:flex;flex-direction:column;gap:.35rem;flex:1">
+                <div style="background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.25);border-radius:6px;padding:.45rem .6rem;font-size:.6rem;color:#FCD34D;font-family:'Space Grotesk',sans-serif">
+                  <div style="font-weight:700;margin-bottom:.15rem">📋 Nova intimação recebida</div>
+                  <div style="opacity:.7">Processo nº 0012345-78.2024 · Vara Trabalhista</div>
+                </div>
+                <div style="display:flex;align-items:center;gap:.4rem;padding:.3rem .5rem;font-size:.58rem;color:rgba(255,255,255,.4)">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                  Identificando especialidade: Trabalhista...
+                </div>
+                <div style="background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.2);border-radius:6px;padding:.4rem .6rem;font-size:.58rem;color:#4ade80;font-family:'Space Grotesk',sans-serif;display:flex;align-items:center;gap:.4rem">
+                  <span>✓</span><span>Distribuída para: Dr. Carlos · Trabalhista</span>
+                </div>
+                <div style="background:rgba(99,102,241,.1);border:1px solid rgba(99,102,241,.2);border-radius:6px;padding:.4rem .6rem;font-size:.58rem;color:#A5B4FC;font-family:'Space Grotesk',sans-serif;display:flex;align-items:center;gap:.4rem">
+                  <span>📝</span><span>Tarefa criada automaticamente no sistema</span>
+                </div>
+                <!-- users -->
+                <div style="display:flex;gap:.4rem;margin-top:.2rem">
+                  <div style="flex:1;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:5px;padding:.35rem .5rem;text-align:center">
+                    <div style="font-size:.5rem;color:rgba(255,255,255,.3)">Trabalhista</div>
+                    <div style="font-family:'Space Grotesk',sans-serif;font-size:.65rem;color:#FCD34D;font-weight:700">Dr. Carlos</div>
+                    <div style="font-size:.48rem;color:#4ade80">3 tarefas ativas</div>
+                  </div>
+                  <div style="flex:1;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:5px;padding:.35rem .5rem;text-align:center">
+                    <div style="font-size:.5rem;color:rgba(255,255,255,.3)">Cível</div>
+                    <div style="font-family:'Space Grotesk',sans-serif;font-size:.65rem;color:#FCD34D;font-weight:700">Dra. Ana</div>
+                    <div style="font-size:.48rem;color:#4ade80">5 tarefas ativas</div>
+                  </div>
+                  <div style="flex:1;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:5px;padding:.35rem .5rem;text-align:center">
+                    <div style="font-size:.5rem;color:rgba(255,255,255,.3)">Família</div>
+                    <div style="font-family:'Space Grotesk',sans-serif;font-size:.65rem;color:#FCD34D;font-weight:700">Dr. Rafael</div>
+                    <div style="font-size:.48rem;color:#4ade80">2 tarefas ativas</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <h3>Automação de Distribuição de Intimações</h3>
+        </div>
+        <p>Quando uma nova intimação chega na plataforma, o sistema identifica automaticamente o padrão, a área jurídica e o tipo de processo. Em seguida distribui para o advogado ou atendente correto conforme a especialidade e cria a tarefa automaticamente para cada usuário.</p>
+        <ul class="proj-feats">
+          <li><span style="width:5px;height:5px;border-radius:50%;background:#B45309;flex-shrink:0;display:block"></span>Leitura e identificação automática do padrão da intimação</li>
+          <li><span style="width:5px;height:5px;border-radius:50%;background:#B45309;flex-shrink:0;display:block"></span>Distribuição por especialidade: trabalhista, cível, família, etc.</li>
+          <li><span style="width:5px;height:5px;border-radius:50%;background:#B45309;flex-shrink:0;display:block"></span>Criação automática de tarefas para cada advogado ou atendente</li>
+          <li><span style="width:5px;height:5px;border-radius:50%;background:#B45309;flex-shrink:0;display:block"></span>Zero intervenção manual na triagem e distribuição</li>
+        </ul>
+      </div>
+
+      <!-- PROJ 10 — AGENTE DE PROCESSOS -->
+      <div class="proj-card reveal d1">
+        <div class="proj-card-header">
+          <span class="proj-badge" style="background:var(--indigo-l);color:var(--indigo)">Projeto 10</span>
+          <div class="proj-card-anim">
+            <div style="background:linear-gradient(135deg,#0D0F18,#1A1040);height:100%;display:grid;grid-template-columns:1fr 1.1fr;gap:.5rem;padding:.8rem;overflow:hidden">
+              <!-- phone side -->
+              <div style="display:flex;flex-direction:column;gap:.3rem">
+                <div style="font-size:.5rem;color:rgba(255,255,255,.3);font-family:'Space Grotesk',sans-serif;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.1rem">WhatsApp</div>
+                <div style="background:#1F2C34;border-radius:6px 6px 6px 2px;padding:.4rem .5rem;font-size:.55rem;color:#E5E7EB;line-height:1.4">Olá! Preciso de informações sobre meu processo trabalhista.</div>
+                <div style="background:#054640;border-radius:6px 6px 2px 6px;padding:.4rem .5rem;font-size:.55rem;color:#E5E7EB;line-height:1.4;align-self:flex-end">Claro! Me informe o número do processo ou seu CPF.</div>
+                <div style="background:#1F2C34;border-radius:6px 6px 6px 2px;padding:.4rem .5rem;font-size:.55rem;color:#E5E7EB;line-height:1.4">CPF: 123.456.789-00</div>
+                <div style="background:rgba(99,102,241,.2);border:1px solid rgba(99,102,241,.3);border-radius:4px;padding:.3rem .45rem;font-size:.5rem;color:#A5B4FC;display:flex;align-items:center;gap:.3rem">
+                  <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  Consultando API do tribunal...
+                </div>
+                <div style="background:#054640;border-radius:6px 6px 2px 6px;padding:.4rem .5rem;font-size:.52rem;color:#E5E7EB;line-height:1.45;align-self:flex-end">Encontrei! Seu processo está na fase de instrução. Próxima audiência: 15/02. Deseja mais detalhes?</div>
+              </div>
+              <!-- platform side -->
+              <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:6px;padding:.6rem;display:flex;flex-direction:column;gap:.3rem">
+                <div style="font-size:.5rem;color:#A5B4FC;font-family:'Space Grotesk',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.2rem">Plataforma</div>
+                <div style="background:rgba(255,255,255,.04);border-radius:4px;padding:.3rem .4rem;border-left:2px solid #6366F1">
+                  <div style="font-size:.52rem;color:#E2E8F0;font-weight:600">Maria Santos</div>
+                  <div style="font-size:.47rem;color:rgba(255,255,255,.35)">Proc. 0012345 · consultado agora</div>
+                </div>
+                <div style="background:rgba(255,255,255,.04);border-radius:4px;padding:.3rem .4rem;border-left:2px solid #6366F1">
+                  <div style="font-size:.52rem;color:#E2E8F0;font-weight:600">João Pereira</div>
+                  <div style="font-size:.47rem;color:rgba(255,255,255,.35)">Proc. 0009871 · há 12min</div>
+                </div>
+                <div style="background:rgba(255,255,255,.04);border-radius:4px;padding:.3rem .4rem;border-left:2px solid rgba(99,102,241,.4)">
+                  <div style="font-size:.52rem;color:#E2E8F0;font-weight:600">Ana Rodrigues</div>
+                  <div style="font-size:.47rem;color:rgba(255,255,255,.35)">Proc. 0023456 · há 1h</div>
+                </div>
+                <div style="margin-top:auto;padding-top:.3rem;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between">
+                  <div style="text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:.7rem;font-weight:700;color:#A5B4FC">47</div><div style="font-size:.44rem;color:rgba(255,255,255,.3)">consultas hoje</div></div>
+                  <div style="text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:.7rem;font-weight:700;color:#4ade80">100%</div><div style="font-size:.44rem;color:rgba(255,255,255,.3)">respondidas</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <h3>Agente de Consulta de Processos Jurídicos</h3>
+        </div>
+        <p>Agente de IA que atende clientes pelo WhatsApp, coleta os dados necessários e consulta o processo automaticamente via API do tribunal. Responde como humano com as informações do andamento. Tudo registrado em uma plataforma onde é possível ver todos os clientes, os processos consultados e o histórico completo de atendimentos.</p>
+        <ul class="proj-feats">
+          <li><span style="width:5px;height:5px;border-radius:50%;background:var(--indigo);flex-shrink:0;display:block"></span>Atendimento humanizado pelo WhatsApp sem intervenção</li>
+          <li><span style="width:5px;height:5px;border-radius:50%;background:var(--indigo);flex-shrink:0;display:block"></span>Consulta automática via API do tribunal com os dados do cliente</li>
+          <li><span style="width:5px;height:5px;border-radius:50%;background:var(--indigo);flex-shrink:0;display:block"></span>Plataforma com todos os clientes, processos e histórico salvo</li>
+          <li><span style="width:5px;height:5px;border-radius:50%;background:var(--indigo);flex-shrink:0;display:block"></span>Visibilidade total do que o agente faz em tempo real</li>
+        </ul>
+      </div>
       <!-- PLACEHOLDER -->
-      <div class="proj-card reveal" style="background:var(--bg2);border-style:dashed;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2.5rem">
+      <div class="proj-card reveal" style="background:var(--bg2);border-style:dashed;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2.5rem;grid-column:span 2">
         <div style="font-size:2.5rem;margin-bottom:1rem">🚀</div>
-        <h3 style="margin-bottom:.6rem">Sua empresa aqui</h3>
-        <p style="margin-bottom:1.5rem;padding:0">Cada empresa tem uma operação diferente. A solução é criada sob medida para o seu modelo de negócio.</p>
-        <a href="https://wa.me/5553999235976" target="_blank" rel="noopener" class="btn-primary" style="font-size:.78rem;padding:.65rem 1.4rem">Conversar agora</a>
+        <h3 style="margin-bottom:.6rem">Sua empresa pode ser o próximo projeto</h3>
+        <p style="margin-bottom:1.5rem;padding:0;max-width:480px">Cada empresa tem uma operação diferente. A solução é criada sob medida para o seu modelo de negócio e tamanho de equipe.</p>
+        <a href="https://wa.me/5553999235976" target="_blank" rel="noopener" class="btn-primary" style="font-size:.82rem;padding:.75rem 1.8rem">💬 Conversar agora</a>
       </div>
     </div>
   </div>
@@ -939,35 +1272,107 @@ footer{background:#07080D;border-top:1px solid rgba(255,255,255,.06);padding:2re
 <!-- BEFORE AFTER + DIFF -->
 <section class="ba-section">
   <div class="section-wrap">
-    <div class="eyebrow reveal">Antes e depois</div>
-    <h2 class="section-h reveal">Como a operação <em>muda</em></h2>
-    <div class="ba-grid reveal">
-      <div class="ba-col before">
-        <span class="ba-head b">Antes</span>
-        <ul class="ba-list">
-          <li><span>❌</span>Atendimento manual e lento</li>
-          <li><span>❌</span>Leads esquecidos sem resposta</li>
-          <li><span>❌</span>Documentos espalhados sem organização</li>
-          <li><span>❌</span>Planilhas desorganizadas e desatualizadas</li>
-          <li><span>❌</span>Falta de métricas sobre a operação</li>
-          <li><span>❌</span>Follow-up feito no improviso</li>
-          <li><span>❌</span>Contratos enviados manualmente</li>
-          <li><span>❌</span>Equipe sobrecarregada com repetição</li>
-        </ul>
+    <div class="eyebrow reveal">O que você ganha</div>
+    <h2 class="section-h reveal">O que muda na sua empresa <em>na prática</em></h2>
+    <p class="section-sub reveal" style="margin-top:.5rem">Cada solução é projetada para gerar um resultado concreto. Veja o que passa a funcionar diferente depois da implementação.</p>
+    <div class="ba-gains">
+
+      <div class="ba-gain reveal" style="--gain-c1:rgba(67,56,202,.04);--gain-border:rgba(67,56,202,.2)">
+        <div class="bg-icon" style="background:var(--indigo-l);color:var(--indigo)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+        </div>
+        <div class="bg-body">
+          <div class="bg-label" style="color:var(--indigo)">Atendimento</div>
+          <div class="bg-title">Sua empresa atende clientes 24h por dia, sem depender de ninguém</div>
+          <div class="bg-desc">O agente de IA responde no lugar da sua equipe, a qualquer hora, com qualidade e consistência.</div>
+          <div class="bg-pills">
+            <span class="bg-pill-before"><strong>Antes</strong>✕ Manual e dependente da equipe</span>
+            <span class="bg-pill-arrow">→</span>
+            <span class="bg-pill-after"  style="background:var(--indigo-l);color:var(--indigo)"><strong>Depois</strong> ✓ automático 24h</span>
+          </div>
+        </div>
       </div>
-      <div class="ba-col after">
-        <span class="ba-head a">Depois</span>
-        <ul class="ba-list">
-          <li><span>✅</span>Agente de IA atendendo 24h automaticamente</li>
-          <li><span>✅</span>Follow-up automático sem perder oportunidades</li>
-          <li><span>✅</span>Documentos organizados por cliente</li>
-          <li><span>✅</span>Dados registrados e atualizados automaticamente</li>
-          <li><span>✅</span>Métricas em tempo real no dashboard</li>
-          <li><span>✅</span>Contratos enviados e acompanhados automaticamente</li>
-          <li><span>✅</span>Processos padronizados e escaláveis</li>
-          <li><span>✅</span>Equipe focada no que realmente importa</li>
-        </ul>
+
+      <div class="ba-gain reveal d1" style="--gain-c1:rgba(101,163,13,.04);--gain-border:rgba(101,163,13,.2)">
+        <div class="bg-icon" style="background:var(--lime-l);color:var(--lime)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        </div>
+        <div class="bg-body">
+          <div class="bg-label" style="color:var(--lime)">Follow-up</div>
+          <div class="bg-title">Nenhum lead é esquecido ou deixado sem resposta</div>
+          <div class="bg-desc">Campanhas automáticas reativam contatos parados e mantêm o funil sempre ativo, sem esforço da equipe.</div>
+          <div class="bg-pills">
+            <span class="bg-pill-before"><strong>Antes</strong>✕ Follow-up no improviso</span>
+            <span class="bg-pill-arrow">→</span>
+            <span class="bg-pill-after"  style="background:var(--lime-l);color:var(--lime)"><strong>Depois</strong> ✓ automação inteligente</span>
+          </div>
+        </div>
       </div>
+
+      <div class="ba-gain reveal d2" style="--gain-c1:rgba(13,148,136,.04);--gain-border:rgba(13,148,136,.2)">
+        <div class="bg-icon" style="background:var(--teal-l);color:var(--teal)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <div class="bg-body">
+          <div class="bg-label" style="color:var(--teal)">Organização</div>
+          <div class="bg-title">Documentos e dados de cada cliente organizados automaticamente</div>
+          <div class="bg-desc">Tudo salvo em pastas individuais no Google Drive, registrado na planilha e acessível em segundos.</div>
+          <div class="bg-pills">
+            <span class="bg-pill-before"><strong>Antes</strong>✕ Tudo espalhado</span>
+            <span class="bg-pill-arrow">→</span>
+            <span class="bg-pill-after"  style="background:var(--teal-l);color:var(--teal)"><strong>Depois</strong> ✓ organizado e acessível</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ba-gain reveal d3" style="--gain-c1:rgba(180,83,9,.04);--gain-border:rgba(180,83,9,.2)">
+        <div class="bg-icon" style="background:var(--amber-l);color:var(--amber)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        </div>
+        <div class="bg-body">
+          <div class="bg-label" style="color:var(--amber)">Visibilidade</div>
+          <div class="bg-title">Métricas da sua operação em tempo real, sempre visíveis</div>
+          <div class="bg-desc">Dashboard com dados de leads, contratos, atendimentos e desempenho por setor, atualizado automaticamente.</div>
+          <div class="bg-pills">
+            <span class="bg-pill-before"><strong>Antes</strong>✕ Sem visibilidade</span>
+            <span class="bg-pill-arrow">→</span>
+            <span class="bg-pill-after"  style="background:var(--amber-l);color:var(--amber)"><strong>Depois</strong> ✓ dashboard ao vivo</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ba-gain reveal" style="--gain-c1:rgba(124,58,237,.04);--gain-border:rgba(124,58,237,.2)">
+        <div class="bg-icon" style="background:var(--violet-l);color:var(--violet)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <div class="bg-body">
+          <div class="bg-label" style="color:var(--violet)">Contratos</div>
+          <div class="bg-title">Contratos gerados, enviados e assinados sem intervenção</div>
+          <div class="bg-desc">O sistema gera o contrato, envia via ZapSign e registra a assinatura automaticamente — o cliente assina pelo celular.</div>
+          <div class="bg-pills">
+            <span class="bg-pill-before"><strong>Antes</strong>✕ Enviados manualmente</span>
+            <span class="bg-pill-arrow">→</span>
+            <span class="bg-pill-after"  style="background:var(--violet-l);color:var(--violet)"><strong>Depois</strong> ✓ 100% automático</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ba-gain reveal d1" style="--gain-c1:rgba(67,56,202,.04);--gain-border:rgba(67,56,202,.2)">
+        <div class="bg-icon" style="background:var(--indigo-l);color:var(--indigo)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        </div>
+        <div class="bg-body">
+          <div class="bg-label" style="color:var(--indigo)">Crescimento</div>
+          <div class="bg-title">Sua empresa cresce sem precisar contratar mais pessoas</div>
+          <div class="bg-desc">A operação automatizada atende mais clientes com a mesma equipe — escalável sem aumento proporcional de custo.</div>
+          <div class="bg-pills">
+            <span class="bg-pill-before"><strong>Antes</strong>✕ Limitado pela equipe</span>
+            <span class="bg-pill-arrow">→</span>
+            <span class="bg-pill-after"  style="background:var(--indigo-l);color:var(--indigo)"><strong>Depois</strong> ✓ operação escalável</span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -978,238 +1383,128 @@ footer{background:#07080D;border-top:1px solid rgba(255,255,255,.06);padding:2re
   <div class="section-wrap">
     <div class="eyebrow reveal">Diferencial</div>
     <h2 class="section-h reveal">Não é apenas automação.<br>É uma operação <em>mais inteligente</em>.</h2>
+
+    <!-- QUOTE -->
     <div class="diff-quote reveal">"Eu não vendo apenas automações. Eu crio operações inteligentes para empresas que querem parar de perder tempo com tarefas repetitivas."</div>
-    <div class="diff-grid">
 
-      <div class="diff-card reveal">
-        <div class="dc-img">
-          <svg width="100%" height="120" viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg">
-          <defs><linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#0D0F18"/><stop offset="100%" style="stop-color:#1A1040"/></linearGradient></defs>
-          <rect width="400" height="120" fill="url(#g1)"/>
-          <circle cx="200" cy="55" r="28" fill="none" stroke="#6366F1" stroke-width="1.5" opacity=".6"/>
-          <circle cx="200" cy="55" r="18" fill="none" stroke="#6366F1" stroke-width="1" opacity=".4"/>
-          <circle cx="200" cy="55" r="8" fill="#6366F1" opacity=".5"/>
-          <line x1="172" y1="55" x2="140" y2="55" stroke="#6366F1" stroke-width="1" opacity=".4"/>
-          <line x1="228" y1="55" x2="260" y2="55" stroke="#6366F1" stroke-width="1" opacity=".4"/>
-          <line x1="200" y1="27" x2="200" y2="10" stroke="#6366F1" stroke-width="1" opacity=".4"/>
-          <line x1="200" y1="83" x2="200" y2="100" stroke="#6366F1" stroke-width="1" opacity=".4"/>
-          <circle cx="140" cy="55" r="4" fill="#6366F1" opacity=".6"/>
-          <circle cx="260" cy="55" r="4" fill="#6366F1" opacity=".6"/>
-          <circle cx="200" cy="10" r="4" fill="#6366F1" opacity=".6"/>
-          <circle cx="200" cy="100" r="4" fill="#6366F1" opacity=".6"/>
-          <rect x="188" y="43" width="24" height="24" rx="4" fill="none" stroke="#A5B4FC" stroke-width="1.5" opacity=".5"/>
-          <circle cx="194" cy="51" r="2" fill="#A5B4FC" opacity=".7"/>
-          <circle cx="206" cy="51" r="2" fill="#A5B4FC" opacity=".7"/>
-          <line x1="192" y1="58" x2="208" y2="58" stroke="#A5B4FC" stroke-width="1.5" stroke-linecap="round" opacity=".5"/>
-          <circle cx="80" cy="30" r="15" fill="none" stroke="#4338CA" stroke-width="1" opacity=".2"/>
-          <circle cx="320" cy="90" r="20" fill="none" stroke="#4338CA" stroke-width="1" opacity=".2"/>
-          <circle cx="50" cy="90" r="8" fill="#6366F1" opacity=".1"/>
-          <circle cx="350" cy="25" r="12" fill="#6366F1" opacity=".08"/>
-        </svg>
-          <div class="dc-label"><span>Agentes de IA</span></div>
+    <!-- LIST STYLE DIFFERENTIALS -->
+    <div class="diff-list reveal">
+
+      <div class="diff-row">
+        <div class="dr-left">
+          <div class="dr-num">01</div>
+          <div class="dr-icon" style="background:var(--indigo-l);color:var(--indigo)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+          </div>
         </div>
-        <div class="dc-body"><p>Agentes personalizados para o modelo de negócio da sua empresa</p></div>
+        <div class="dr-body">
+          <div class="dr-title">Agentes de IA personalizados</div>
+          <div class="dr-text">Criados especificamente para o modelo de negócio da sua empresa, não soluções genéricas que servem para qualquer coisa.</div>
+        </div>
+        <div class="dr-tag" style="background:var(--indigo-l);color:var(--indigo)">IA</div>
       </div>
 
-      <div class="diff-card reveal d1">
-        <div class="dc-img">
-          <svg width="100%" height="120" viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg">
-          <defs><linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#0A1628"/><stop offset="100%" style="stop-color:#0F1F35"/></linearGradient></defs>
-          <rect width="400" height="120" fill="url(#g2)"/>
-          <rect x="30" y="47" width="44" height="26" rx="6" fill="#1E3A5F" stroke="#3B82F6" stroke-width="1.2"/>
-          <rect x="120" y="20" width="44" height="26" rx="6" fill="#1E3A5F" stroke="#3B82F6" stroke-width="1.2" opacity=".8"/>
-          <rect x="120" y="74" width="44" height="26" rx="6" fill="#1E3A5F" stroke="#3B82F6" stroke-width="1.2" opacity=".8"/>
-          <rect x="220" y="47" width="44" height="26" rx="6" fill="#1E3A5F" stroke="#3B82F6" stroke-width="1.2"/>
-          <rect x="320" y="47" width="44" height="26" rx="6" fill="#1E3A5F" stroke="#60A5FA" stroke-width="1.5"/>
-          <path d="M74 60 Q97 60 120 33" fill="none" stroke="#3B82F6" stroke-width="1.2" stroke-dasharray="4 2" opacity=".7"/>
-          <path d="M74 60 Q97 60 120 87" fill="none" stroke="#3B82F6" stroke-width="1.2" stroke-dasharray="4 2" opacity=".7"/>
-          <path d="M164 33 Q192 33 220 60" fill="none" stroke="#3B82F6" stroke-width="1.2" stroke-dasharray="4 2" opacity=".7"/>
-          <path d="M164 87 Q192 87 220 60" fill="none" stroke="#3B82F6" stroke-width="1.2" stroke-dasharray="4 2" opacity=".7"/>
-          <line x1="264" y1="60" x2="320" y2="60" stroke="#60A5FA" stroke-width="1.5" stroke-dasharray="4 2" opacity=".8"/>
-          <circle cx="74" cy="60" r="3" fill="#3B82F6"/>
-          <circle cx="120" cy="33" r="3" fill="#3B82F6" opacity=".8"/>
-          <circle cx="120" cy="87" r="3" fill="#3B82F6" opacity=".8"/>
-          <circle cx="264" cy="60" r="3" fill="#3B82F6"/>
-          <circle cx="320" cy="60" r="3" fill="#60A5FA"/>
-          <text x="42" y="63" font-size="8" fill="#60A5FA" font-family="monospace" opacity=".9">N8N</text>
-          <text x="127" y="36" font-size="7" fill="#93C5FD" font-family="monospace" opacity=".8">API</text>
-          <text x="127" y="90" font-size="7" fill="#93C5FD" font-family="monospace" opacity=".8">WA</text>
-          <text x="228" y="63" font-size="7" fill="#60A5FA" font-family="monospace" opacity=".9">Dados</text>
-          <text x="327" y="63" font-size="8" fill="#93C5FD" font-family="monospace" opacity=".9">✓</text>
-        </svg>
-          <div class="dc-label"><span>Automações</span></div>
+      <div class="diff-row">
+        <div class="dr-left">
+          <div class="dr-num">02</div>
+          <div class="dr-icon" style="background:var(--lime-l);color:var(--lime)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
         </div>
-        <div class="dc-body"><p>N8N, APIs e plataformas integradas, tudo conectado em um só fluxo</p></div>
+        <div class="dr-body">
+          <div class="dr-title">Automações com N8N, APIs e integrações</div>
+          <div class="dr-text">Tudo conectado em um único fluxo: WhatsApp, planilhas, contratos, CRMs e plataformas externas funcionando juntos.</div>
+        </div>
+        <div class="dr-tag" style="background:var(--lime-l);color:var(--lime)">N8N</div>
       </div>
 
-      <div class="diff-card reveal d2">
-        <div class="dc-img">
-          <svg width="100%" height="120" viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg">
-          <defs><linearGradient id="g3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#0F1117"/><stop offset="100%" style="stop-color:#1C1A2E"/></linearGradient></defs>
-          <rect width="400" height="120" fill="url(#g3)"/>
-          <line x1="200" y1="20" x2="200" y2="95" stroke="#A78BFA" stroke-width="1.5" opacity=".5"/>
-          <line x1="160" y1="30" x2="240" y2="30" stroke="#A78BFA" stroke-width="1.5" opacity=".5"/>
-          <line x1="160" y1="30" x2="135" y2="55" stroke="#A78BFA" stroke-width="1.2" opacity=".4"/>
-          <line x1="240" y1="30" x2="265" y2="55" stroke="#A78BFA" stroke-width="1.2" opacity=".4"/>
-          <ellipse cx="135" cy="60" rx="22" ry="8" fill="none" stroke="#7C3AED" stroke-width="1.2" opacity=".6"/>
-          <ellipse cx="265" cy="60" rx="22" ry="8" fill="none" stroke="#7C3AED" stroke-width="1.2" opacity=".6"/>
-          <rect x="185" y="92" width="30" height="5" rx="2" fill="#7C3AED" opacity=".4"/>
-          <circle cx="200" cy="20" r="4" fill="#A78BFA" opacity=".7"/>
-          <rect x="60" y="35" width="60" height="45" rx="4" fill="none" stroke="#4C1D95" stroke-width="1" opacity=".3"/>
-          <line x1="70" y1="50" x2="110" y2="50" stroke="#7C3AED" stroke-width="1" opacity=".3"/>
-          <line x1="70" y1="60" x2="110" y2="60" stroke="#7C3AED" stroke-width="1" opacity=".3"/>
-          <line x1="70" y1="70" x2="95" y2="70" stroke="#7C3AED" stroke-width="1" opacity=".3"/>
-          <rect x="280" y="35" width="60" height="45" rx="4" fill="none" stroke="#4C1D95" stroke-width="1" opacity=".3"/>
-          <line x1="290" y1="50" x2="330" y2="50" stroke="#7C3AED" stroke-width="1" opacity=".3"/>
-          <line x1="290" y1="60" x2="330" y2="60" stroke="#7C3AED" stroke-width="1" opacity=".3"/>
-          <line x1="290" y1="70" x2="315" y2="70" stroke="#7C3AED" stroke-width="1" opacity=".3"/>
-        </svg>
-          <div class="dc-label"><span>Experiência comprovada</span></div>
+      <div class="diff-row">
+        <div class="dr-left">
+          <div class="dr-num">03</div>
+          <div class="dr-icon" style="background:var(--teal-l);color:var(--teal)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          </div>
         </div>
-        <div class="dc-body"><p>Experiência prática em escritórios de advocacia e outros segmentos</p></div>
+        <div class="dr-body">
+          <div class="dr-title">Tráfego pago integrado à operação</div>
+          <div class="dr-text">O anúncio gera o lead e o sistema já atende automaticamente. Sem gaps entre captação e atendimento.</div>
+        </div>
+        <div class="dr-tag" style="background:var(--teal-l);color:var(--teal)">Ads</div>
       </div>
 
-      <div class="diff-card reveal d3">
-        <div class="dc-img">
-          <svg width="100%" height="120" viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg">
-          <defs><linearGradient id="g4" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#0D1F0D"/><stop offset="100%" style="stop-color:#162516"/></linearGradient></defs>
-          <rect width="400" height="120" fill="url(#g4)"/>
-          <polyline points="40,85 80,65 130,70 175,40 220,50 270,25 310,35 360,15" fill="none" stroke="#4ade80" stroke-width="2" opacity=".7"/>
-          <polyline points="40,85 80,65 130,70 175,40 220,50 270,25 310,35 360,15" fill="none" stroke="#4ade80" stroke-width="8" opacity=".04"/>
-          <circle cx="270" cy="25" r="5" fill="#4ade80" opacity=".8"/>
-          <circle cx="175" cy="40" r="4" fill="#4ade80" opacity=".6"/>
-          <circle cx="360" cy="15" r="5" fill="#4ade80" opacity=".9"/>
-          <rect x="50" y="92" width="30" height="12" rx="3" fill="#166534" opacity=".5"/>
-          <rect x="90" y="85" width="30" height="19" rx="3" fill="#166534" opacity=".5"/>
-          <rect x="130" y="78" width="30" height="26" rx="3" fill="#166534" opacity=".5"/>
-          <rect x="170" y="68" width="30" height="36" rx="3" fill="#16a34a" opacity=".5"/>
-          <rect x="210" y="60" width="30" height="44" rx="3" fill="#16a34a" opacity=".6"/>
-          <rect x="250" y="50" width="30" height="54" rx="3" fill="#15803d" opacity=".6"/>
-          <text x="35" y="112" font-size="7" fill="#4ade80" font-family="monospace" opacity=".6">Meta</text>
-          <text x="250" y="112" font-size="7" fill="#4ade80" font-family="monospace" opacity=".6">Google</text>
-          <text x="330" y="112" font-size="7" fill="#4ade80" font-family="monospace" opacity=".6">WA</text>
-        </svg>
-          <div class="dc-label"><span>Tráfego Pago</span></div>
+      <div class="diff-row">
+        <div class="dr-left">
+          <div class="dr-num">04</div>
+          <div class="dr-icon" style="background:#E0F2FE;color:#0369A1">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+          </div>
         </div>
-        <div class="dc-body"><p>Tráfego pago conectado diretamente à operação de atendimento</p></div>
+        <div class="dr-body">
+          <div class="dr-title">Sites e landing pages de alta conversão</div>
+          <div class="dr-text">Páginas profissionais prontas para receber tráfego pago, com botão direto para o WhatsApp ou agente de atendimento.</div>
+        </div>
+        <div class="dr-tag" style="background:#E0F2FE;color:#0369A1">Sites</div>
       </div>
 
-      <div class="diff-card reveal">
-        <div class="dc-img">
-          <svg width="100%" height="120" viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg">
-          <defs><linearGradient id="g5" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#0A1628"/><stop offset="100%" style="stop-color:#0D1F35"/></linearGradient></defs>
-          <rect width="400" height="120" fill="url(#g5)"/>
-          <rect x="20" y="15" width="170" height="90" rx="6" fill="#0F2240" stroke="#1E3A5F" stroke-width="1"/>
-          <rect x="30" y="25" width="60" height="30" rx="4" fill="#1E3A5F"/>
-          <text x="38" y="44" font-size="14" font-weight="bold" fill="#60A5FA" font-family="monospace">610</text>
-          <text x="33" y="53" font-size="6" fill="#3B82F6" font-family="monospace" opacity=".7">LEADS</text>
-          <rect x="100" y="25" width="60" height="30" rx="4" fill="#1E3A5F"/>
-          <text x="107" y="44" font-size="14" font-weight="bold" fill="#4ade80" font-family="monospace">459</text>
-          <text x="102" y="53" font-size="6" fill="#22c55e" font-family="monospace" opacity=".7">ATEND.</text>
-          <rect x="30" y="62" width="60" height="8" rx="2" fill="#1E3A5F"/>
-          <rect x="30" y="62" width="46" height="8" rx="2" fill="#3B82F6" opacity=".7"/>
-          <rect x="30" y="76" width="60" height="8" rx="2" fill="#1E3A5F"/>
-          <rect x="30" y="76" width="28" height="8" rx="2" fill="#4ade80" opacity=".7"/>
-          <rect x="30" y="90" width="60" height="8" rx="2" fill="#1E3A5F"/>
-          <rect x="30" y="90" width="52" height="8" rx="2" fill="#A78BFA" opacity=".7"/>
-          <rect x="30" y="90" width="52" height="8" rx="2" fill="#A78BFA" opacity=".7"/>
-          <rect x="200" y="15" width="180" height="90" rx="6" fill="#0F2240" stroke="#1E3A5F" stroke-width="1"/>
-          <line x1="210" y1="95" x2="370" y2="95" stroke="#1E3A5F" stroke-width="1"/>
-          <rect x="218" y="70" width="18" height="25" rx="2" fill="#3B82F6" opacity=".6"/>
-          <rect x="244" y="55" width="18" height="40" rx="2" fill="#3B82F6" opacity=".7"/>
-          <rect x="270" y="45" width="18" height="50" rx="2" fill="#60A5FA" opacity=".7"/>
-          <rect x="296" y="60" width="18" height="35" rx="2" fill="#3B82F6" opacity=".6"/>
-          <rect x="322" y="35" width="18" height="60" rx="2" fill="#2563EB" opacity=".8"/>
-          <rect x="348" y="50" width="18" height="45" rx="2" fill="#60A5FA" opacity=".7"/>
-        </svg>
-          <div class="dc-label"><span>Dashboards</span></div>
+      <div class="diff-row">
+        <div class="dr-left">
+          <div class="dr-num">05</div>
+          <div class="dr-icon" style="background:var(--violet-l);color:var(--violet)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+          </div>
         </div>
-        <div class="dc-body"><p>Dashboards e plataformas internas criadas sob medida para cada negócio</p></div>
+        <div class="dr-body">
+          <div class="dr-title">Dashboards e plataformas internas sob medida</div>
+          <div class="dr-text">Visibilidade total da operação: métricas, leads, contratos e dados em tempo real, tudo no mesmo lugar.</div>
+        </div>
+        <div class="dr-tag" style="background:var(--violet-l);color:var(--violet)">Dashboard</div>
       </div>
 
-      <div class="diff-card reveal d1">
-        <div class="dc-img">
-          <svg width="100%" height="120" viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg">
-          <defs><linearGradient id="g6" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#111827"/><stop offset="100%" style="stop-color:#1F2937"/></linearGradient></defs>
-          <rect width="400" height="120" fill="url(#g6)"/>
-          <rect x="70" y="15" width="65" height="85" rx="5" fill="#1F2937" stroke="#374151" stroke-width="1.2" transform="rotate(-8 102 57)"/>
-          <rect x="90" y="10" width="65" height="85" rx="5" fill="#1F2937" stroke="#374151" stroke-width="1.2" transform="rotate(-2 122 52)"/>
-          <rect x="110" y="15" width="65" height="85" rx="5" fill="#111827" stroke="#4B5563" stroke-width="1.2"/>
-          <line x1="122" y1="38" x2="163" y2="38" stroke="#6B7280" stroke-width="1" opacity=".8"/>
-          <line x1="122" y1="48" x2="163" y2="48" stroke="#6B7280" stroke-width="1" opacity=".8"/>
-          <line x1="122" y1="58" x2="163" y2="58" stroke="#6B7280" stroke-width="1" opacity=".8"/>
-          <line x1="122" y1="68" x2="150" y2="68" stroke="#6B7280" stroke-width="1" opacity=".8"/>
-          <circle cx="280" cy="55" r="30" fill="none" stroke="#10B981" stroke-width="2" opacity=".3"/>
-          <circle cx="280" cy="55" r="20" fill="none" stroke="#10B981" stroke-width="1.5" opacity=".4"/>
-          <polyline points="265,55 275,65 295,45" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity=".8"/>
-          <text x="250" y="100" font-size="7" fill="#10B981" font-family="monospace" opacity=".7">ZapSign ✓</text>
-          <line x1="175" y1="55" x2="250" y2="55" stroke="#10B981" stroke-width="1" stroke-dasharray="4 2" opacity=".4"/>
-          <circle cx="175" cy="55" r="3" fill="#10B981" opacity=".5"/>
-        </svg>
-          <div class="dc-label"><span>Documentos e Contratos</span></div>
+      <div class="diff-row">
+        <div class="dr-left">
+          <div class="dr-num">06</div>
+          <div class="dr-icon" style="background:var(--rose-l);color:var(--rose)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
         </div>
-        <div class="dc-body"><p>Integração com documentos, contratos, planilhas e sistemas existentes</p></div>
+        <div class="dr-body">
+          <div class="dr-title">Integração com documentos, contratos e planilhas</div>
+          <div class="dr-text">Conectado ao que a empresa já usa: Google Drive, Sheets, ZapSign e sistemas internos existentes.</div>
+        </div>
+        <div class="dr-tag" style="background:var(--rose-l);color:var(--rose)">Docs</div>
       </div>
 
-      <div class="diff-card reveal d2">
-        <div class="dc-img">
-          <svg width="100%" height="120" viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg">
-          <defs><linearGradient id="g7" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#0D0F18"/><stop offset="100%" style="stop-color:#1A1040"/></linearGradient></defs>
-          <rect width="400" height="120" fill="url(#g7)"/>
-          <circle cx="200" cy="50" r="16" fill="#1E1B4B" stroke="#6366F1" stroke-width="1.5"/>
-          <circle cx="145" cy="70" r="13" fill="#1E1B4B" stroke="#6366F1" stroke-width="1.2" opacity=".8"/>
-          <circle cx="255" cy="70" r="13" fill="#1E1B4B" stroke="#6366F1" stroke-width="1.2" opacity=".8"/>
-          <circle cx="95" cy="85" r="10" fill="#1E1B4B" stroke="#4338CA" stroke-width="1" opacity=".6"/>
-          <circle cx="305" cy="85" r="10" fill="#1E1B4B" stroke="#4338CA" stroke-width="1" opacity=".6"/>
-          <line x1="200" y1="66" x2="155" y2="68" stroke="#6366F1" stroke-width="1" opacity=".5"/>
-          <line x1="200" y1="66" x2="245" y2="68" stroke="#6366F1" stroke-width="1" opacity=".5"/>
-          <line x1="145" y1="83" x2="105" y2="83" stroke="#4338CA" stroke-width="1" opacity=".4"/>
-          <line x1="255" y1="83" x2="295" y2="83" stroke="#4338CA" stroke-width="1" opacity=".4"/>
-          <text x="192" y="54" font-size="9" fill="#A5B4FC" font-family="monospace" opacity=".9">★</text>
-          <text x="138" y="74" font-size="8" fill="#818CF8" font-family="monospace" opacity=".8">○</text>
-          <text x="248" y="74" font-size="8" fill="#818CF8" font-family="monospace" opacity=".8">○</text>
-          <rect x="50" y="15" width="300" height="2" rx="1" fill="#4338CA" opacity=".15"/>
-          <rect x="80" y="22" width="240" height="2" rx="1" fill="#4338CA" opacity=".1"/>
-        </svg>
-          <div class="dc-label"><span>Adaptável</span></div>
+      <div class="diff-row">
+        <div class="dr-left">
+          <div class="dr-num">07</div>
+          <div class="dr-icon" style="background:var(--indigo-l);color:var(--indigo)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
         </div>
-        <div class="dc-body"><p>Soluções adaptáveis a diferentes tamanhos e tipos de empresa</p></div>
+        <div class="dr-body">
+          <div class="dr-title">Soluções adaptáveis a qualquer tamanho de empresa</div>
+          <div class="dr-text">Do escritório de 2 pessoas à empresa com equipes maiores. A solução é moldada para a realidade de cada operação.</div>
+        </div>
+        <div class="dr-tag" style="background:var(--indigo-l);color:var(--indigo)">Flexível</div>
       </div>
 
-      <div class="diff-card reveal d3">
-        <div class="dc-img">
-          <svg width="100%" height="120" viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg">
-          <defs><linearGradient id="g8" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#0A1628"/><stop offset="100%" style="stop-color:#0F2240"/></linearGradient></defs>
-          <rect width="400" height="120" fill="url(#g8)"/>
-          <circle cx="55" cy="60" r="18" fill="#0F2240" stroke="#3B82F6" stroke-width="1.5"/>
-          <circle cx="130" cy="60" r="18" fill="#0F2240" stroke="#3B82F6" stroke-width="1.5"/>
-          <circle cx="205" cy="60" r="18" fill="#0F2240" stroke="#3B82F6" stroke-width="1.5"/>
-          <circle cx="280" cy="60" r="18" fill="#0F2240" stroke="#3B82F6" stroke-width="1.5"/>
-          <circle cx="355" cy="60" r="18" fill="#0F2240" stroke="#60A5FA" stroke-width="2"/>
-          <line x1="73" y1="60" x2="112" y2="60" stroke="#3B82F6" stroke-width="1.5" stroke-dasharray="3 2" opacity=".6"/>
-          <line x1="148" y1="60" x2="187" y2="60" stroke="#3B82F6" stroke-width="1.5" stroke-dasharray="3 2" opacity=".6"/>
-          <line x1="223" y1="60" x2="262" y2="60" stroke="#3B82F6" stroke-width="1.5" stroke-dasharray="3 2" opacity=".6"/>
-          <line x1="298" y1="60" x2="337" y2="60" stroke="#60A5FA" stroke-width="2" stroke-dasharray="3 2" opacity=".8"/>
-          <text x="47" y="64" font-size="9" fill="#60A5FA" font-family="monospace" opacity=".9">01</text>
-          <text x="122" y="64" font-size="9" fill="#60A5FA" font-family="monospace" opacity=".9">02</text>
-          <text x="197" y="64" font-size="9" fill="#60A5FA" font-family="monospace" opacity=".9">03</text>
-          <text x="272" y="64" font-size="9" fill="#60A5FA" font-family="monospace" opacity=".9">04</text>
-          <text x="347" y="64" font-size="10" fill="#93C5FD" font-family="monospace" opacity=".9">✓</text>
-          <text x="35" y="90" font-size="6" fill="#3B82F6" font-family="monospace" opacity=".6">Diagnóst.</text>
-          <text x="108" y="90" font-size="6" fill="#3B82F6" font-family="monospace" opacity=".6">Planeja.</text>
-          <text x="185" y="90" font-size="6" fill="#3B82F6" font-family="monospace" opacity=".6">Criação</text>
-          <text x="260" y="90" font-size="6" fill="#3B82F6" font-family="monospace" opacity=".6">Integr.</text>
-          <text x="333" y="90" font-size="6" fill="#60A5FA" font-family="monospace" opacity=".8">Operação</text>
-        </svg>
-          <div class="dc-label"><span>Do diagnóstico à operação</span></div>
+      <div class="diff-row" style="border-bottom:none">
+        <div class="dr-left">
+          <div class="dr-num">08</div>
+          <div class="dr-icon" style="background:var(--lime-l);color:var(--lime)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          </div>
         </div>
-        <div class="dc-body"><p>Do diagnóstico à operação funcionando, processo estruturado e acompanhado</p></div>
+        <div class="dr-body">
+          <div class="dr-title">Experiência prática em projetos reais</div>
+          <div class="dr-text">Projetos implementados e em operação em escritórios de advocacia e outros segmentos. Não apenas teoria.</div>
+        </div>
+        <div class="dr-tag" style="background:var(--lime-l);color:var(--lime)">Comprovado</div>
       </div>
 
     </div>
   </div>
 </section>
-<div class="divider"></div>
 
 <!-- CTA -->
 <section class="cta-section" id="contato">
