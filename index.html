@@ -168,14 +168,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:.9rem 5vw;display:fl
 .at-check{display:flex;align-items:center;gap:.5rem;font-size:.78rem;color:var(--muted)}
 .at-check::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--indigo);flex-shrink:0}
 @media(max-width:768px){.aud-trigger{grid-template-columns:1fr}}
-.seg-tabs{display:flex;gap:.4rem;flex-wrap:wrap;margin:2.5rem 0 1.2rem}
-.seg-tab{padding:.5rem 1.1rem;font-size:.78rem;font-weight:500;cursor:none;transition:all .2s;border:1px solid var(--border);background:var(--card);color:var(--muted);border-radius:8px}
-.seg-tab.active{background:var(--ink);color:#fff;border-color:var(--ink)}
-.seg-panel{display:none}
-.seg-panel.active{display:grid;grid-template-columns:repeat(2,1fr);gap:.6rem}
-.seg-item{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:.75rem 1rem;display:flex;align-items:center;gap:.6rem;font-size:.8rem;color:var(--text);transition:border-color .2s}
-.seg-item:hover{border-color:rgba(67,56,202,.3)}
-.seg-item::before{content:'◆';color:var(--indigo);font-size:.38rem;flex-shrink:0}
 
 /* ── HOW ── */
 .how-section{background:var(--ink);border-top:none}
@@ -1152,55 +1144,7 @@ footer{background:#07080D;border-top:1px solid rgba(255,255,255,.06);padding:2re
       </div>
       <a href="https://wa.me/5553999235976" target="_blank" rel="noopener" class="btn-primary" style="white-space:nowrap">💬 Quero automatizar</a>
     </div>
-    <div style="margin-top:3rem">
-      <div class="eyebrow" style="margin-bottom:1rem">Exemplos por segmento</div>
-      <div class="seg-tabs" id="seg-tabs">
-        <button class="seg-tab active" data-panel="p-adv">Advocacia</button>
-        <button class="seg-tab" data-panel="p-cli">Clínicas</button>
-        <button class="seg-tab" data-panel="p-srv">Serviços</button>
-        <button class="seg-tab" data-panel="p-loc">Negócios Locais</button>
-      </div>
-      <div class="seg-panel active" id="p-adv">
-        <div class="seg-item">Atendimento automático de leads jurídicos</div>
-        <div class="seg-item">Coleta e organização de documentos por cliente</div>
-        <div class="seg-item">Envio e acompanhamento de contratos via ZapSign</div>
-        <div class="seg-item">Follow-up de assinatura pendente</div>
-        <div class="seg-item">Dashboard de atendimentos e contratos</div>
-        <div class="seg-item">Plataforma de gravação automatizada com clientes</div>
-        <div class="seg-item">Avatares de IA para conteúdo sem aparecer em câmera</div>
-        <div class="seg-item">Organização interna de informações por setor</div>
-      </div>
-      <div class="seg-panel" id="p-cli">
-        <div class="seg-item">Atendimento automático de interessados</div>
-        <div class="seg-item">Pré-qualificação e filtro de leads</div>
-        <div class="seg-item">Follow-up de clientes sem resposta</div>
-        <div class="seg-item">Campanhas de captação via Meta Ads</div>
-        <div class="seg-item">Reativação de base de clientes</div>
-        <div class="seg-item">Dashboard de agendamentos e atendimentos</div>
-        <div class="seg-item">Disparos programados para base ativa</div>
-        <div class="seg-item">Organização do histórico de clientes</div>
-      </div>
-      <div class="seg-panel" id="p-srv">
-        <div class="seg-item">Atendimento de orçamentos automaticamente</div>
-        <div class="seg-item">Organização de clientes por etapa</div>
-        <div class="seg-item">Follow-up comercial para oportunidades paradas</div>
-        <div class="seg-item">Envio automático de informações e propostas</div>
-        <div class="seg-item">Controle de oportunidades em dashboard</div>
-        <div class="seg-item">Integração entre WhatsApp, planilhas e sistemas</div>
-        <div class="seg-item">Automação de tarefas internas repetitivas</div>
-        <div class="seg-item">Métricas de vendas por período</div>
-      </div>
-      <div class="seg-panel" id="p-loc">
-        <div class="seg-item">Captação de leads com tráfego pago local</div>
-        <div class="seg-item">Atendimento automático no WhatsApp</div>
-        <div class="seg-item">Campanhas para clientes antigos</div>
-        <div class="seg-item">Mensagens programadas com intervalos inteligentes</div>
-        <div class="seg-item">Reativação de clientes que pararam de comprar</div>
-        <div class="seg-item">Acompanhamento de resultados em dashboard</div>
-        <div class="seg-item">Integração anúncio → WhatsApp → atendimento</div>
-        <div class="seg-item">Organização e segmentação de contatos</div>
-      </div>
-    </div>
+
   </div>
 </section>
 <div class="divider"></div>
@@ -1307,29 +1251,10 @@ footer{background:#07080D;border-top:1px solid rgba(255,255,255,.06);padding:2re
 <div class="divider"></div>
 
 <!-- BENEFITS -->
-<section class="ben-section" id="resultados">
-  <div class="section-wrap">
-    <div class="eyebrow reveal">Resultados buscados</div>
-    <h2 class="section-h reveal">O que essas soluções <em>ajudam a alcançar</em></h2>
-    <div class="ben-grid">
-      <div class="ben-card reveal"><div class="ben-ico" style="background:var(--indigo-l);color:var(--indigo)"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><h4>Atendimento mais rápido</h4><p>Permite que leads sejam atendidos imediatamente, sem depender da disponibilidade da equipe.</p></div>
-      <div class="ben-card reveal d1"><div class="ben-ico" style="background:var(--lime-l);color:var(--lime)"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div><h4>Documentos organizados</h4><p>Facilita o acesso a arquivos de cada cliente em pastas e sistemas estruturados automaticamente.</p></div>
-      <div class="ben-card reveal d2"><div class="ben-ico" style="background:var(--violet-l);color:var(--violet)"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div><h4>Follow-up automático</h4><p>Reduz a perda de oportunidades com acompanhamento automático de leads parados.</p></div>
-      <div class="ben-card reveal d3"><div class="ben-ico" style="background:var(--amber-l);color:var(--amber)"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><h4>Dados centralizados</h4><p>Melhora a visibilidade da operação com métricas atualizadas em dashboards acessíveis.</p></div>
-      <div class="ben-card reveal"><div class="ben-ico" style="background:var(--teal-l);color:var(--teal)"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div><h4>Menos tarefas manuais</h4><p>Potencializa a produtividade ao automatizar atividades repetitivas do dia a dia.</p></div>
-      <div class="ben-card reveal d1"><div class="ben-ico" style="background:var(--rose-l);color:var(--rose)"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><h4>Operação escalável</h4><p>Apoia o crescimento sem necessidade de aumentar a equipe na mesma proporção.</p></div>
-      <div class="ben-card reveal d2"><div class="ben-ico" style="background:var(--indigo-l);color:var(--indigo)"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div><h4>Captação integrada</h4><p>Conecta anúncios, atendimento e follow-up em um único fluxo, do clique ao fechamento.</p></div>
-      <div class="ben-card reveal d3"><div class="ben-ico" style="background:var(--lime-l);color:var(--lime)"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg></div><h4>Equipes mais produtivas</h4><p>Libera tempo para atividades estratégicas, reduzindo a sobrecarga operacional.</p></div>
-    </div>
-  </div>
-</section>
-<div class="divider"></div>
-
-<!-- BEFORE AFTER + DIFF -->
-<section class="ba-section">
+<section class="ba-section" id="resultados">
   <div class="section-wrap">
     <div class="eyebrow reveal">O que você ganha</div>
-    <h2 class="section-h reveal">O que muda na sua empresa <em>na prática</em></h2>
+    <h2 class="section-h reveal">O que muda de verdade <em>na sua empresa</em></h2>
     <p class="section-sub reveal" style="margin-top:.5rem">Cada solução é projetada para gerar um resultado concreto. Veja o que passa a funcionar diferente depois da implementação.</p>
     <div class="ba-gains">
 
@@ -1344,7 +1269,7 @@ footer{background:#07080D;border-top:1px solid rgba(255,255,255,.06);padding:2re
           <div class="bg-pills">
             <span class="bg-pill-before"><strong>Antes</strong>✕ Manual e dependente da equipe</span>
             <span class="bg-pill-arrow">→</span>
-            <span class="bg-pill-after"  style="background:var(--indigo-l);color:var(--indigo)"><strong>Depois</strong> ✓ automático 24h</span>
+            <span class="bg-pill-after" style="background:var(--indigo-l);color:var(--indigo)"><strong>Depois</strong> ✓ automático 24h</span>
           </div>
         </div>
       </div>
@@ -1360,7 +1285,7 @@ footer{background:#07080D;border-top:1px solid rgba(255,255,255,.06);padding:2re
           <div class="bg-pills">
             <span class="bg-pill-before"><strong>Antes</strong>✕ Follow-up no improviso</span>
             <span class="bg-pill-arrow">→</span>
-            <span class="bg-pill-after"  style="background:var(--lime-l);color:var(--lime)"><strong>Depois</strong> ✓ automação inteligente</span>
+            <span class="bg-pill-after" style="background:var(--lime-l);color:var(--lime)"><strong>Depois</strong> ✓ automação inteligente</span>
           </div>
         </div>
       </div>
@@ -1376,7 +1301,7 @@ footer{background:#07080D;border-top:1px solid rgba(255,255,255,.06);padding:2re
           <div class="bg-pills">
             <span class="bg-pill-before"><strong>Antes</strong>✕ Tudo espalhado</span>
             <span class="bg-pill-arrow">→</span>
-            <span class="bg-pill-after"  style="background:var(--teal-l);color:var(--teal)"><strong>Depois</strong> ✓ organizado e acessível</span>
+            <span class="bg-pill-after" style="background:var(--teal-l);color:var(--teal)"><strong>Depois</strong> ✓ organizado e acessível</span>
           </div>
         </div>
       </div>
@@ -1392,7 +1317,7 @@ footer{background:#07080D;border-top:1px solid rgba(255,255,255,.06);padding:2re
           <div class="bg-pills">
             <span class="bg-pill-before"><strong>Antes</strong>✕ Sem visibilidade</span>
             <span class="bg-pill-arrow">→</span>
-            <span class="bg-pill-after"  style="background:var(--amber-l);color:var(--amber)"><strong>Depois</strong> ✓ dashboard ao vivo</span>
+            <span class="bg-pill-after" style="background:var(--amber-l);color:var(--amber)"><strong>Depois</strong> ✓ dashboard ao vivo</span>
           </div>
         </div>
       </div>
@@ -1408,7 +1333,7 @@ footer{background:#07080D;border-top:1px solid rgba(255,255,255,.06);padding:2re
           <div class="bg-pills">
             <span class="bg-pill-before"><strong>Antes</strong>✕ Enviados manualmente</span>
             <span class="bg-pill-arrow">→</span>
-            <span class="bg-pill-after"  style="background:var(--violet-l);color:var(--violet)"><strong>Depois</strong> ✓ 100% automático</span>
+            <span class="bg-pill-after" style="background:var(--violet-l);color:var(--violet)"><strong>Depois</strong> ✓ 100% automático</span>
           </div>
         </div>
       </div>
@@ -1424,7 +1349,39 @@ footer{background:#07080D;border-top:1px solid rgba(255,255,255,.06);padding:2re
           <div class="bg-pills">
             <span class="bg-pill-before"><strong>Antes</strong>✕ Limitado pela equipe</span>
             <span class="bg-pill-arrow">→</span>
-            <span class="bg-pill-after"  style="background:var(--indigo-l);color:var(--indigo)"><strong>Depois</strong> ✓ operação escalável</span>
+            <span class="bg-pill-after" style="background:var(--indigo-l);color:var(--indigo)"><strong>Depois</strong> ✓ operação escalável</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ba-gain reveal d2" style="--gain-c1:rgba(101,163,13,.04);--gain-border:rgba(101,163,13,.2)">
+        <div class="bg-icon" style="background:var(--lime-l);color:var(--lime)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+        </div>
+        <div class="bg-body">
+          <div class="bg-label" style="color:var(--lime)">Produtividade</div>
+          <div class="bg-title">Sua equipe para de perder tempo com tarefas repetitivas</div>
+          <div class="bg-desc">As automações assumem o trabalho operacional e sua equipe foca no que realmente gera resultado para o negócio.</div>
+          <div class="bg-pills">
+            <span class="bg-pill-before"><strong>Antes</strong>✕ Equipe sobrecarregada</span>
+            <span class="bg-pill-arrow">→</span>
+            <span class="bg-pill-after" style="background:var(--lime-l);color:var(--lime)"><strong>Depois</strong> ✓ foco no que importa</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ba-gain reveal d3" style="--gain-c1:rgba(13,148,136,.04);--gain-border:rgba(13,148,136,.2)">
+        <div class="bg-icon" style="background:var(--teal-l);color:var(--teal)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+        </div>
+        <div class="bg-body">
+          <div class="bg-label" style="color:var(--teal)">Captação</div>
+          <div class="bg-title">Do anúncio ao cliente fechado, tudo conectado em um fluxo</div>
+          <div class="bg-desc">Tráfego pago, atendimento automático e follow-up integrados. O lead entra e o sistema conduz até o fechamento.</div>
+          <div class="bg-pills">
+            <span class="bg-pill-before"><strong>Antes</strong>✕ Processos separados</span>
+            <span class="bg-pill-arrow">→</span>
+            <span class="bg-pill-after" style="background:var(--teal-l);color:var(--teal)"><strong>Depois</strong> ✓ fluxo único integrado</span>
           </div>
         </div>
       </div>
