@@ -851,6 +851,67 @@ footer{background:#07080D;border-top:1px solid rgba(255,255,255,.06);padding:2re
       <p style="font-size:.68rem;color:rgba(255,255,255,.25);margin-top:.8rem;font-style:italic">* Dados referentes ao período de teste operacional. Resultados variam conforme volume, segmento e estratégia.</p>
     </div>
 
+    <!-- PROJ FINANCEIRO -->
+    <div class="proj-featured reveal" style="margin-top:2rem;background:linear-gradient(135deg,#07080D,#0A1628)">
+      <div class="pf-badge" style="background:rgba(16,185,129,.15);color:#10B981;border:1px solid rgba(16,185,129,.3)">Projeto 03 · Assistente Financeiro com IA</div>
+      <h3>Controle financeiro <em style="background:linear-gradient(135deg,#10B981,#6366F1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">pelo WhatsApp</em></h3>
+      <p>A ferramenta completa para controlar finanças, definir metas e alcançar a liberdade financeira. Envie texto, áudio ou foto de nota fiscal pelo WhatsApp e a IA captura, classifica e registra tudo automaticamente. No painel, saldo, gráficos e relatórios em tempo real, sem planilhas.</p>
+
+      <!-- SIDE BY SIDE: PHONE + DASHBOARD -->
+      <div style="display:grid;grid-template-columns:200px 1fr;gap:1.5rem;align-items:start">
+
+        <!-- PHONE -->
+        <div class="phone-mock" style="width:200px">
+          <div class="ph-bar">
+            <div class="ph-ava" style="background:linear-gradient(135deg,#10B981,#059669);font-size:.7rem">💰</div>
+            <div><div class="ph-name">Assistente Financeiro</div><div class="ph-on">● online</div></div>
+          </div>
+          <div class="ph-msgs" id="bk-msgs" style="min-height:240px;max-height:240px"><div class="wtyp" id="bk-typ"><span></span><span></span><span></span></div></div>
+          <div class="ph-input"><div class="ph-inp">Texto, áudio ou foto...</div><div class="ph-send">🎤</div></div>
+        </div>
+
+        <!-- DASHBOARD -->
+        <div style="background:#07080D;border-radius:10px;border:1px solid rgba(255,255,255,.07);overflow:hidden">
+          <!-- kpis -->
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)">
+            <div style="background:#07080D;padding:.7rem .6rem;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem;color:#10B981;line-height:1" id="bk-saldo">R$0</div><div style="font-size:.47rem;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.05em;margin-top:.2rem">Saldo</div></div>
+            <div style="background:#07080D;padding:.7rem .6rem;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem;color:#4ade80;line-height:1" id="bk-rec">R$0</div><div style="font-size:.47rem;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.05em;margin-top:.2rem">Receitas</div></div>
+            <div style="background:#07080D;padding:.7rem .6rem;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem;color:#FCA5A5;line-height:1" id="bk-gas">R$0</div><div style="font-size:.47rem;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.05em;margin-top:.2rem">Gastos</div></div>
+            <div style="background:#07080D;padding:.7rem .6rem;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem;color:#A5B4FC;line-height:1" id="bk-meta">0%</div><div style="font-size:.47rem;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.05em;margin-top:.2rem">Meta mês</div></div>
+          </div>
+          <!-- charts -->
+          <div style="display:grid;grid-template-columns:1.3fr 1fr;gap:0;border-bottom:1px solid rgba(255,255,255,.06)">
+            <div style="padding:.8rem;border-right:1px solid rgba(255,255,255,.06)">
+              <div style="font-size:.52rem;color:rgba(255,255,255,.25);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.5rem;display:flex;justify-content:space-between;font-family:'Space Grotesk',sans-serif">Por categoria <span style="color:#10B981">Jul</span></div>
+              <div style="display:flex;align-items:flex-end;gap:.25rem;height:44px" id="bk-bars"></div>
+              <div style="display:flex;gap:.5rem;margin-top:.4rem">
+                <div style="display:flex;align-items:center;gap:.2rem;font-size:.44rem;color:rgba(255,255,255,.3)"><div style="width:5px;height:5px;border-radius:1px;background:#6366F1"></div>Alim.</div>
+                <div style="display:flex;align-items:center;gap:.2rem;font-size:.44rem;color:rgba(255,255,255,.3)"><div style="width:5px;height:5px;border-radius:1px;background:#10B981"></div>Trans.</div>
+                <div style="display:flex;align-items:center;gap:.2rem;font-size:.44rem;color:rgba(255,255,255,.3)"><div style="width:5px;height:5px;border-radius:1px;background:#FCD34D"></div>Lazer</div>
+                <div style="display:flex;align-items:center;gap:.2rem;font-size:.44rem;color:rgba(255,255,255,.3)"><div style="width:5px;height:5px;border-radius:1px;background:#FCA5A5"></div>Outros</div>
+              </div>
+            </div>
+            <div style="padding:.8rem">
+              <div style="font-size:.52rem;color:rgba(255,255,255,.25);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.5rem;font-family:'Space Grotesk',sans-serif">Metas</div>
+              <div style="display:flex;flex-direction:column;gap:.4rem" id="bk-metas"></div>
+            </div>
+          </div>
+          <!-- transactions -->
+          <div style="padding:.7rem .8rem">
+            <div style="font-size:.52rem;color:rgba(255,255,255,.25);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.45rem;font-family:'Space Grotesk',sans-serif">Lançamentos via WhatsApp</div>
+            <div id="bk-txns" style="display:flex;flex-direction:column;gap:.22rem"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pf-metrics" style="margin-top:1.5rem">
+        <div class="pfm"><div class="pn" style="font-size:1.6rem">💬</div><div class="pl">Texto</div></div>
+        <div class="pfm"><div class="pn" style="font-size:1.6rem">🎤</div><div class="pl">Áudio</div></div>
+        <div class="pfm"><div class="pn" style="font-size:1.6rem">🧾</div><div class="pl">Nota fiscal</div></div>
+        <div class="pfm"><div class="pn" style="font-size:1.6rem">📊</div><div class="pl">Dashboard ao vivo</div></div>
+      </div>
+    </div>
+
     <!-- OTHER PROJECTS -->
     <div class="proj-grid">
       <!-- P03 FOLLOW-UP -->
@@ -1081,6 +1142,8 @@ footer{background:#07080D;border-top:1px solid rgba(255,255,255,.06);padding:2re
           <li><span style="width:5px;height:5px;border-radius:50%;background:var(--indigo);flex-shrink:0;display:block"></span>Visibilidade total do que o agente faz em tempo real</li>
         </ul>
       </div>
+
+
       <!-- PLACEHOLDER -->
       <div class="proj-card reveal" style="background:var(--bg2);border-style:dashed;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2.5rem">
         <div style="font-size:2.5rem;margin-bottom:1rem">🚀</div>
@@ -1529,7 +1592,7 @@ footer{background:#07080D;border-top:1px solid rgba(255,255,255,.06);padding:2re
     <a href="https://wa.me/5553999235976" class="btn-cta">💬 Quero automatizar a minha empresa</a>
     <div class="cta-contacts">
       <span>WhatsApp: <a href="https://wa.me/5553999235976">(53) 99923-5976</a></span>
-      <span>E-mail: <a href="mailto:mntrabalho1@gmail.com">mntrabalho1@gmail.com</a></span>
+      <span>E-mail: <a href="mailto:agencia.avoryn@gmail.com">agencia.avoryn@gmail.com</a></span>
     </div>
   </div>
 </section>
@@ -1872,8 +1935,91 @@ const projObs=new IntersectionObserver(entries=>{
 },{threshold:.3});
 ['anim-fu','anim-da','anim-disp'].forEach(id=>{const el=document.getElementById(id);if(el)projObs.observe(el);});
 
-// static inits
-setTimeout(initGravacao,800);
+// auto-init Bankel on scroll
+const bkObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){initBankelWA();initBankelDash();bkObs.unobserve(e.target);}});},{threshold:.2});
+const bkMsgsEl=document.getElementById('bk-msgs');if(bkMsgsEl)bkObs.observe(bkMsgsEl.closest('.proj-featured')||bkMsgsEl);
+
+function initBankelWA(){
+  const msgs=[
+    {f:'r',t:'gastei 45 reais no almoço hoje'},
+    {f:'s',t:'✅ Registrado!\n🍽️ Alimentação · R$45,00\n📅 Hoje · Categoria: Almoço'},
+    {f:'r',aud:true,t:'Áudio · 0:08'},
+    {f:'s',t:'🎤 Áudio processado!\n⛽ Combustível · R$120,00\nCategoria: Transporte'},
+    {f:'r',img:true,t:'🧾 nota_fiscal.jpg'},
+    {f:'s',t:'🧾 Nota fiscal lida!\n🛒 Supermercado · R$213,40\nItens identificados e registrados'},
+    {f:'r',t:'quanto gastei esse mês?'},
+    {f:'s',t:'📊 Julho:\n💸 Gastos: R$1.460,00\n💰 Receitas: R$3.800,00\n✅ Saldo: R$2.340,00'},
+  ];
+  const msgsEl=document.getElementById('bk-msgs'),typ=document.getElementById('bk-typ');
+  if(!msgsEl||!typ)return;
+  msgsEl.innerHTML='';msgsEl.appendChild(typ);
+  const delays=[0,1600,3400,5200,6800,8600,10200,12000];
+  msgs.forEach((m,i)=>{
+    setTimeout(()=>{
+      typ.style.opacity='1';
+      setTimeout(()=>{
+        typ.style.opacity='0';
+        const el=document.createElement('div');el.className='wm '+m.f;
+        if(m.aud){
+          el.classList.add('aud');
+          const wid='bkwv'+i;
+          el.innerHTML=`<span>▶</span><div class="wav"><div class="wav-fill" id="${wid}"></div></div><span>${m.t}</span><div class="t">agora</div>`;
+          msgsEl.insertBefore(el,typ);el.classList.add('v');
+          setTimeout(()=>{const wf=document.getElementById(wid);if(wf)wf.style.width='100%';},100);
+        } else if(m.img){
+          el.innerHTML=`<div style="background:rgba(255,255,255,.08);border-radius:6px;padding:.4rem .6rem;font-size:.6rem;display:flex;align-items:center;gap:.35rem"><span>🧾</span><span>${m.t}</span></div><div class="t">agora</div>`;
+          msgsEl.insertBefore(el,typ);setTimeout(()=>el.classList.add('v'),40);
+        } else {
+          el.innerHTML=m.t.replace(/\n/g,'<br>')+'<div class="t">agora</div>';
+          msgsEl.insertBefore(el,typ);setTimeout(()=>el.classList.add('v'),40);
+        }
+        msgsEl.scrollTop=msgsEl.scrollHeight;
+      },500);
+    },delays[i]);
+  });
+}
+
+function initBankelDash(){
+  // KPI counters
+  function countTo(id,prefix,target,dur){
+    const el=document.getElementById(id);if(!el)return;
+    let c=0;const step=target/50;
+    const ti=setInterval(()=>{c+=step;if(c>=target){el.textContent=prefix+(target>=1000?'R$'+target.toLocaleString('pt-BR'):target+'%');clearInterval(ti);}
+    else el.textContent=prefix+(target>=100?'R$'+Math.floor(c).toLocaleString('pt-BR'):Math.floor(c)+'%');},dur/50);
+  }
+  setTimeout(()=>{
+    const _s=document.getElementById('bk-saldo'),_r=document.getElementById('bk-rec'),_g=document.getElementById('bk-gas'),_m=document.getElementById('bk-meta');
+    if(!_s||!_r||!_g||!_m)return;
+    _s.textContent='R$0';_r.textContent='R$0';_g.textContent='R$0';_m.textContent='0%';
+    let s=0,r=0,g=0,m=0;
+    const ti=setInterval(()=>{
+      s+=2340/50;r+=3800/50;g+=1460/50;m+=68/50;
+      const se=document.getElementById('bk-saldo'),re=document.getElementById('bk-rec'),ge=document.getElementById('bk-gas'),me=document.getElementById('bk-meta');
+      if(se)se.textContent='R$'+Math.min(Math.floor(s),2340).toLocaleString('pt-BR');
+      if(re)re.textContent='R$'+Math.min(Math.floor(r),3800).toLocaleString('pt-BR');
+      if(ge)ge.textContent='R$'+Math.min(Math.floor(g),1460).toLocaleString('pt-BR');
+      if(me)me.textContent=Math.min(Math.floor(m),68)+'%';
+      if(s>=2340)clearInterval(ti);
+    },20);
+  },300);
+  // bar chart
+  const bars=[{h:72,c:'#6366F1'},{h:45,c:'#10B981'},{h:28,c:'#FCD34D'},{h:55,c:'#FCA5A5'}];
+  const barsEl=document.getElementById('bk-bars');
+  if(barsEl){barsEl.innerHTML='';bars.forEach((b,i)=>{const el=document.createElement('div');el.style.cssText=`flex:1;background:${b.c}33;border-radius:3px 3px 0 0;height:3px;transition:height .9s ease ${i*.1}s`;barsEl.appendChild(el);setTimeout(()=>el.style.height=b.h+'%',200);});}
+  // metas
+  const metasEl=document.getElementById('bk-metas');
+  const metas=[{l:'Viagem',p:25,c:'#10B981'},{l:'Reserva',p:60,c:'#6366F1'},{l:'Eletrônico',p:40,c:'#FCD34D'}];
+  if(metasEl){metasEl.innerHTML='';metas.forEach(m=>{const el=document.createElement('div');el.innerHTML=`<div style="display:flex;justify-content:space-between;margin-bottom:.18rem"><span style="font-size:.55rem;color:rgba(255,255,255,.45);font-family:'Space Grotesk',sans-serif">${m.l}</span><span style="font-size:.55rem;color:${m.c};font-weight:700">${m.p}%</span></div><div style="height:5px;background:rgba(255,255,255,.06);border-radius:100px;overflow:hidden"><div style="height:100%;background:${m.c};border-radius:100px;width:0;transition:width 1.2s ease" class="bk-mbar"></div></div>`;metasEl.appendChild(el);setTimeout(()=>el.querySelector('.bk-mbar').style.width=m.p+'%',400);});}
+  // transactions
+  const txnsEl=document.getElementById('bk-txns');
+  const txns=[
+    {ico:'🍽️',desc:'Almoço · Alimentação',val:'-R$45',col:'#FCA5A5',t:'14:32'},
+    {ico:'💰',desc:'Salário',val:'+R$3.800',col:'#4ade80',t:'09:15'},
+    {ico:'🚌',desc:'Uber · Transporte',val:'-R$18',col:'#FCA5A5',t:'08:40'},
+    {ico:'🎬',desc:'Netflix · Lazer',val:'-R$55',col:'#FCA5A5',t:'Ontem'},
+  ];
+  if(txnsEl){txnsEl.innerHTML='';txns.forEach((tx,i)=>{const el=document.createElement('div');el.style.cssText=`display:flex;align-items:center;gap:.5rem;padding:.28rem .3rem;border-radius:4px;opacity:0;transition:opacity .3s ${i*.08}s;border-bottom:1px solid rgba(255,255,255,.04)`;el.innerHTML=`<span style="font-size:.75rem">${tx.ico}</span><span style="flex:1;font-size:.55rem;color:rgba(255,255,255,.5);font-family:'Space Grotesk',sans-serif">${tx.desc}</span><span style="font-size:.58rem;font-weight:700;color:${tx.col};font-family:'Space Grotesk',sans-serif">${tx.val}</span><span style="font-size:.48rem;color:rgba(255,255,255,.25)">${tx.t}</span>`;txnsEl.appendChild(el);setTimeout(()=>el.style.opacity='1',i*100+500);});}
+}
 setTimeout(initAvatar,800);
 
 // Landing page metrics counter
