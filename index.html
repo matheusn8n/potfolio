@@ -168,6 +168,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:.9rem 5vw;display:fl
 .at-check{display:flex;align-items:center;gap:.5rem;font-size:.78rem;color:var(--muted)}
 .at-check::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--indigo);flex-shrink:0}
 @media(max-width:768px){.aud-trigger{grid-template-columns:1fr}}
+.seg-tabs{display:flex;gap:.4rem;flex-wrap:wrap;margin:2.5rem 0 1.2rem}
+.seg-tab{padding:.5rem 1.1rem;font-size:.78rem;font-weight:500;cursor:none;transition:all .2s;border:1px solid var(--border);background:var(--card);color:var(--muted);border-radius:8px}
+.seg-tab.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+.seg-panel{display:none}
+.seg-panel.active{display:grid;grid-template-columns:repeat(2,1fr);gap:.6rem}
+.seg-item{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:.75rem 1rem;display:flex;align-items:center;gap:.6rem;font-size:.8rem;color:var(--text);transition:border-color .2s}
+.seg-item:hover{border-color:rgba(67,56,202,.3)}
+.seg-item::before{content:'◆';color:var(--indigo);font-size:.38rem;flex-shrink:0}
 
 /* ── HOW ── */
 .how-section{background:var(--ink);border-top:none}
@@ -309,6 +317,67 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:.9rem 5vw;display:fl
 .pfm{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:1.2rem;text-align:center}
 .pfm .pn{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:2rem;color:#A5B4FC;line-height:1;letter-spacing:-.03em}
 .pfm .pl{font-size:.6rem;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.06em;margin-top:.25rem}
+
+/* ── TRÁFEGO PAGO BLOCK ── */
+.traf-block{margin-top:2rem;background:var(--ink);border-radius:16px;padding:2.5rem;position:relative;overflow:hidden}
+.traf-block::before{content:'';position:absolute;top:-100px;right:-80px;width:360px;height:360px;background:radial-gradient(circle,rgba(251,146,60,.08),transparent 65%);pointer-events:none}
+.traf-block::after{content:'';position:absolute;bottom:-80px;left:-60px;width:260px;height:260px;background:radial-gradient(circle,rgba(249,115,22,.06),transparent 65%);pointer-events:none}
+.traf-top{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:2rem;position:relative;z-index:1}
+.traf-eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(251,146,60,.9);margin-bottom:.7rem}
+.traf-eyebrow-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#fb923c;box-shadow:0 0 8px rgba(251,146,60,.6);animation:traf-pulse 2s infinite}
+@keyframes traf-pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(1.3)}}
+.traf-h{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(1.2rem,2vw,1.6rem);color:#fff;letter-spacing:-.02em;line-height:1.2;margin-bottom:.6rem}
+.traf-h em{font-style:normal;background:linear-gradient(135deg,#FDE68A,#FB923C);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.traf-sub{font-size:.84rem;color:rgba(255,255,255,.4);line-height:1.65;max-width:460px}
+.traf-badges{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.8rem}
+.traf-badge{display:inline-flex;align-items:center;gap:.35rem;padding:.3rem .75rem;border-radius:100px;font-size:.7rem;font-weight:700;letter-spacing:.03em}
+.traf-badge.meta{background:rgba(24,119,242,.12);color:#93c5fd;border:1px solid rgba(24,119,242,.2)}
+.traf-badge.google{background:rgba(251,146,60,.1);color:#fdba74;border:1px solid rgba(251,146,60,.2)}
+.traf-badge svg{width:11px;height:11px;flex-shrink:0}
+/* ANIMATION STAGE */
+.traf-stage{position:relative;z-index:1;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:2rem 2.5rem 2rem 2rem;display:grid;grid-template-columns:auto 1fr auto;gap:0;align-items:center;min-height:220px}
+/* AD CARD */
+.traf-ad{width:160px;flex-shrink:0;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;overflow:hidden;animation:traf-ad-glow 3s ease-in-out infinite}
+@keyframes traf-ad-glow{0%,100%{box-shadow:0 0 0 0 rgba(251,146,60,0)}50%{box-shadow:0 0 20px rgba(251,146,60,.2)}}
+.traf-ad-top{background:rgba(255,255,255,.05);padding:.5rem .6rem;display:flex;align-items:center;gap:.4rem;border-bottom:1px solid rgba(255,255,255,.07)}
+.traf-ad-ava{width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,#fb923c,#f59e0b);display:flex;align-items:center;justify-content:center;font-size:.55rem;font-weight:800;color:#fff;flex-shrink:0}
+.traf-ad-info{flex:1;min-width:0}
+.traf-ad-name{font-size:.6rem;font-weight:700;color:rgba(255,255,255,.8);line-height:1}
+.traf-ad-spon{font-size:.52rem;color:rgba(255,255,255,.35);font-weight:500}
+.traf-ad-img{height:70px;background:linear-gradient(135deg,rgba(67,56,202,.4),rgba(139,92,246,.3));display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.traf-ad-img::after{content:'';position:absolute;inset:0;background:linear-gradient(45deg,transparent 30%,rgba(255,255,255,.05) 50%,transparent 70%);animation:traf-shimmer 2.5s infinite}
+@keyframes traf-shimmer{0%{transform:translateX(-100%)}100%{transform:translateX(200%)}}
+.traf-ad-img span{font-size:.65rem;font-weight:700;color:rgba(255,255,255,.6);letter-spacing:.05em;text-transform:uppercase;position:relative;z-index:1}
+.traf-ad-body{padding:.5rem .6rem}
+.traf-ad-txt{font-size:.6rem;color:rgba(255,255,255,.5);line-height:1.5;margin-bottom:.4rem}
+.traf-ad-btn{background:rgba(251,146,60,.85);color:#fff;font-size:.58rem;font-weight:700;padding:.25rem .5rem;border-radius:4px;display:inline-block;letter-spacing:.03em}
+/* FLOW TRACK */
+.traf-flow{flex:1;position:relative;height:100%;display:flex;align-items:center;padding:0 .5rem}
+.traf-flow-svg{width:100%;height:60px;overflow:visible}
+/* PEOPLE GRID */
+.traf-people{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;width:200px;flex-shrink:0}
+.tp{display:flex;flex-direction:column;align-items:center;gap:.3rem;position:relative}
+.tp-circle{width:36px;height:36px;border-radius:50%;border:2px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;transition:all .6s ease;background:rgba(255,255,255,.04);position:relative}
+.tp-circle svg{width:16px;height:16px;opacity:.35;transition:all .6s ease}
+.tp-badge{font-size:.55rem;font-weight:700;padding:.15rem .4rem;border-radius:100px;white-space:nowrap;opacity:0;transition:all .5s ease;transform:translateY(3px)}
+/* person states */
+.tp.seen .tp-circle{border-color:rgba(251,146,60,.6);background:rgba(251,146,60,.1);animation:tp-seen-pop .4s ease}
+.tp.seen .tp-circle svg{opacity:.9;color:#fb923c}
+.tp.seen .tp-badge{opacity:1;transform:translateY(0);background:rgba(251,146,60,.15);color:#fb923c;border:1px solid rgba(251,146,60,.3)}
+.tp.lead .tp-circle{border-color:rgba(99,102,241,.7);background:rgba(99,102,241,.15);animation:tp-seen-pop .4s ease}
+.tp.lead .tp-circle svg{opacity:1;color:#818cf8}
+.tp.lead .tp-badge{opacity:1;transform:translateY(0);background:rgba(99,102,241,.15);color:#818cf8;border:1px solid rgba(99,102,241,.3)}
+.tp.client .tp-circle{border-color:rgba(74,222,128,.8);background:rgba(74,222,128,.15);animation:tp-client-pop .4s ease}
+.tp.client .tp-circle svg{opacity:1;color:#4ade80}
+.tp.client .tp-badge{opacity:1;transform:translateY(0);background:rgba(74,222,128,.12);color:#4ade80;border:1px solid rgba(74,222,128,.3)}
+.tp.client .tp-circle::after{content:'✓';position:absolute;top:-5px;right:-5px;width:14px;height:14px;border-radius:50%;background:#4ade80;color:#0D0F14;font-size:.55rem;font-weight:900;display:flex;align-items:center;justify-content:center;animation:tp-check-pop .3s ease}
+@keyframes tp-seen-pop{0%{transform:scale(1)}50%{transform:scale(1.15)}100%{transform:scale(1)}}
+@keyframes tp-client-pop{0%{transform:scale(1)}40%{transform:scale(1.2)}100%{transform:scale(1)}}
+@keyframes tp-check-pop{0%{transform:scale(0);opacity:0}70%{transform:scale(1.2)}100%{transform:scale(1);opacity:1}}
+/* flow dot */
+.traf-dot{r:4;fill:#fb923c;opacity:0}
+@media(max-width:1024px){.traf-stage{grid-template-columns:1fr;gap:1.5rem}.traf-people{width:100%;grid-template-columns:repeat(6,1fr)}.traf-ad{width:100%}}
+@media(max-width:640px){.traf-people{grid-template-columns:repeat(3,1fr)}.traf-stage{padding:1.2rem}}
 
 /* ── OTHER PROJECTS ── */
 .proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.8rem;margin-top:2rem}
@@ -772,6 +841,56 @@ footer{background:#07080D;border-top:1px solid rgba(255,255,255,.06);padding:2re
         </div>
       </div>
 
+      <!-- 07 PLATAFORMAS EXCLUSIVAS -->
+      <div class="srv-card reveal" style="--srv-color:rgba(67,56,202,.25);--srv-grad:linear-gradient(90deg,#6366f1,#8b5cf6)">
+        <div class="srv-top">
+          <div class="srv-ico" style="background:#ede9fe;color:#6d28d9">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+          </div>
+          <span class="srv-step">07</span>
+        </div>
+        <h3>Plataformas Exclusivas</h3>
+        <p>Sistemas próprios desenvolvidos do zero para cada empresa — gestão de leads, clientes, follow-up e relatórios com a identidade e o fluxo do seu negócio. Não é template.</p>
+        <!-- mini platform mockup -->
+        <div style="background:#f3f4f6;border:1px solid #e5e7eb;border-radius:10px;overflow:hidden;margin:.4rem 0 .2rem">
+          <div style="background:#e5e7eb;padding:.35rem .7rem;display:flex;align-items:center;gap:.4rem">
+            <span style="width:6px;height:6px;border-radius:50%;background:#ef4444;display:block"></span>
+            <span style="width:6px;height:6px;border-radius:50%;background:#f59e0b;display:block"></span>
+            <span style="width:6px;height:6px;border-radius:50%;background:#22c55e;display:block"></span>
+            <span style="font-size:.6rem;color:#9ca3af;margin-left:.2rem;font-weight:500">gestão.suaempresa.com.br</span>
+          </div>
+          <div style="padding:.6rem .7rem;display:flex;gap:.5rem">
+            <div style="flex:1;background:#fff;border:1px solid #e5e7eb;border-radius:6px;padding:.4rem .5rem;text-align:center">
+              <div style="font-size:.85rem;font-weight:800;color:#111827;font-family:'Space Grotesk',sans-serif">142</div>
+              <div style="font-size:.58rem;color:#6b7280;font-weight:500">Leads</div>
+            </div>
+            <div style="flex:1;background:#fff;border:1px solid #e5e7eb;border-radius:6px;padding:.4rem .5rem;text-align:center">
+              <div style="font-size:.85rem;font-weight:800;color:#111827;font-family:'Space Grotesk',sans-serif">37</div>
+              <div style="font-size:.58rem;color:#6b7280;font-weight:500">Clientes</div>
+            </div>
+            <div style="flex:1;background:#fff;border:1px solid #e5e7eb;border-radius:6px;padding:.4rem .5rem;text-align:center">
+              <div style="font-size:.85rem;font-weight:800;color:#22c55e;font-family:'Space Grotesk',sans-serif">8</div>
+              <div style="font-size:.58rem;color:#6b7280;font-weight:500">Follow-ups</div>
+            </div>
+          </div>
+          <div style="padding:0 .7rem .5rem;display:flex;flex-direction:column;gap:.25rem">
+            <div style="display:flex;align-items:center;justify-content:space-between;background:#fff;border:1px solid #e5e7eb;border-radius:5px;padding:.3rem .5rem">
+              <span style="font-size:.62rem;color:#374151;font-weight:500">Carlos M. — trabalhista</span>
+              <span style="font-size:.58rem;font-weight:700;color:#6366f1;background:#eef2ff;padding:.1rem .35rem;border-radius:100px">Em andamento</span>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;background:#fff;border:1px solid #e5e7eb;border-radius:5px;padding:.3rem .5rem">
+              <span style="font-size:.62rem;color:#374151;font-weight:500">Ana P. — rescisão</span>
+              <span style="font-size:.58rem;font-weight:700;color:#16a34a;background:#f0fdf4;padding:.1rem .35rem;border-radius:100px">Contrato assinado</span>
+            </div>
+          </div>
+        </div>
+        <div class="srv-tags">
+          <span class="srv-tag" style="background:#ede9fe;color:#6d28d9;border-color:rgba(109,40,217,.2)">CRM Exclusivo</span>
+          <span class="srv-tag" style="background:#ede9fe;color:#6d28d9;border-color:rgba(109,40,217,.2)">Gestão de Leads</span>
+          <span class="srv-tag" style="background:#ede9fe;color:#6d28d9;border-color:rgba(109,40,217,.2)">100% Personalizado</span>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -784,9 +903,117 @@ footer{background:#07080D;border-top:1px solid rgba(255,255,255,.06);padding:2re
     <h2 class="section-h reveal">Soluções que já <em>estão funcionando</em></h2>
     <p class="section-sub reveal">Projetos implementados e em operação. Dados operacionais reais, sem promessa de resultado garantido.</p>
 
+    <!-- TRÁFEGO PAGO -->
+    <div class="traf-block reveal">
+      <div class="traf-top">
+        <div>
+          <div class="traf-eyebrow"><span class="traf-eyebrow-dot"></span>Tráfego Pago · Campanhas ativas</div>
+          <h3 class="traf-h">Anúncio certo,<br><em>cliente qualificado</em></h3>
+          <p class="traf-sub">Alguns dos nossos clientes já estão captando leads qualificados todo mês com campanhas de Meta Ads e Google Ads criadas especificamente para o seu segmento. O anúncio atrai, o sistema recepciona e converte.</p>
+          <div class="traf-badges">
+            <span class="traf-badge meta">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+              Meta Ads
+            </span>
+            <span class="traf-badge google">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.545 10.239v3.821h5.445c-.712 2.315-2.647 3.972-5.445 3.972a6.033 6.033 0 110-12.064c1.498 0 2.866.549 3.921 1.453l2.814-2.814A9.969 9.969 0 0012.545 2C7.021 2 2.543 6.477 2.543 12s4.478 10 10.002 10c8.396 0 10.249-7.85 9.426-11.748l-9.426-.013z"/></svg>
+              Google Ads
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ANIMATION STAGE -->
+      <div class="traf-stage">
+
+        <!-- AD CARD -->
+        <div class="traf-ad">
+          <div class="traf-ad-top">
+            <div class="traf-ad-ava">A</div>
+            <div class="traf-ad-info">
+              <div class="traf-ad-name">Escritório Adv.</div>
+              <div class="traf-ad-spon">Patrocinado · Meta</div>
+            </div>
+          </div>
+          <div class="traf-ad-img"><span>Anúncio</span></div>
+          <div class="traf-ad-body">
+            <div class="traf-ad-txt">Precisa de assistência jurídica? Fale agora com um especialista.</div>
+            <div class="traf-ad-btn">Saiba mais</div>
+          </div>
+        </div>
+
+        <!-- FLOW SVG -->
+        <div class="traf-flow">
+          <svg class="traf-flow-svg" id="traf-svg" viewBox="0 0 300 60" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="flow-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#fb923c" stop-opacity="0.8"/>
+                <stop offset="100%" stop-color="#fb923c" stop-opacity="0.1"/>
+              </linearGradient>
+            </defs>
+            <!-- track lines -->
+            <line x1="0" y1="10" x2="300" y2="10" stroke="rgba(255,255,255,.06)" stroke-width="1" stroke-dasharray="4 4"/>
+            <line x1="0" y1="30" x2="300" y2="30" stroke="rgba(255,255,255,.06)" stroke-width="1" stroke-dasharray="4 4"/>
+            <line x1="0" y1="50" x2="300" y2="50" stroke="rgba(255,255,255,.06)" stroke-width="1" stroke-dasharray="4 4"/>
+            <!-- animated dots -->
+            <circle class="traf-dot" id="td1" cx="0" cy="10" r="4" fill="#fb923c"/>
+            <circle class="traf-dot" id="td2" cx="0" cy="30" r="4" fill="#fb923c"/>
+            <circle class="traf-dot" id="td3" cx="0" cy="50" r="4" fill="#fb923c"/>
+            <circle class="traf-dot" id="td4" cx="0" cy="10" r="3" fill="#818cf8"/>
+            <circle class="traf-dot" id="td5" cx="0" cy="30" r="3" fill="#818cf8"/>
+            <circle class="traf-dot" id="td6" cx="0" cy="50" r="3" fill="#4ade80"/>
+          </svg>
+        </div>
+
+        <!-- PEOPLE GRID -->
+        <div class="traf-people" id="traf-people">
+          <!-- row 1 -->
+          <div class="tp" id="tp1">
+            <div class="tp-circle"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg></div>
+            <span class="tp-badge">Viu o anúncio</span>
+          </div>
+          <div class="tp" id="tp2">
+            <div class="tp-circle"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg></div>
+            <span class="tp-badge">Viu o anúncio</span>
+          </div>
+          <div class="tp" id="tp3">
+            <div class="tp-circle"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg></div>
+            <span class="tp-badge">Viu o anúncio</span>
+          </div>
+          <!-- row 2 -->
+          <div class="tp" id="tp4">
+            <div class="tp-circle"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg></div>
+            <span class="tp-badge">Lead</span>
+          </div>
+          <div class="tp" id="tp5">
+            <div class="tp-circle"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg></div>
+            <span class="tp-badge">Lead</span>
+          </div>
+          <div class="tp" id="tp6">
+            <div class="tp-circle"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg></div>
+            <span class="tp-badge">Viu o anúncio</span>
+          </div>
+          <!-- row 3 -->
+          <div class="tp" id="tp7">
+            <div class="tp-circle"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg></div>
+            <span class="tp-badge">Cliente</span>
+          </div>
+          <div class="tp" id="tp8">
+            <div class="tp-circle"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg></div>
+            <span class="tp-badge">Lead</span>
+          </div>
+          <div class="tp" id="tp9">
+            <div class="tp-circle"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg></div>
+            <span class="tp-badge">Cliente</span>
+          </div>
+        </div>
+
+      </div><!-- /traf-stage -->
+    </div>
+
     <!-- FEATURED -->
     <div class="proj-featured reveal">
-      <div class="pf-badge">Projeto 01 · Sistema completo</div>
+      <div class="pf-badge">Projeto 01 + 02 · Sistema completo</div>
       <h3>Agente de IA para Advocacia<br><em>+ Dashboard em tempo real</em></h3>
       <p>Sistema completo onde o agente conversa como humano, envia áudios, coleta documentos, organiza tudo no Google Drive e planilhas, e fecha contratos via ZapSign, sem intervenção. Com frontend ao vivo para acompanhar cada etapa.</p>
       <div class="demo-tabs" id="demo-tabs">
@@ -851,66 +1078,156 @@ footer{background:#07080D;border-top:1px solid rgba(255,255,255,.06);padding:2re
       <p style="font-size:.68rem;color:rgba(255,255,255,.25);margin-top:.8rem;font-style:italic">* Dados referentes ao período de teste operacional. Resultados variam conforme volume, segmento e estratégia.</p>
     </div>
 
-    <!-- PROJ FINANCEIRO -->
-    <div class="proj-featured reveal" style="margin-top:2rem;background:linear-gradient(135deg,#07080D,#0A1628)">
-      <div class="pf-badge" style="background:rgba(16,185,129,.15);color:#10B981;border:1px solid rgba(16,185,129,.3)">Projeto 02 · Assistente Financeiro com IA</div>
-      <h3>Controle financeiro <em style="background:linear-gradient(135deg,#10B981,#6366F1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">pelo WhatsApp</em></h3>
+    <!-- PROJ 02 — ASSISTENTE FINANCEIRO -->
+    <div class="proj-featured reveal" style="margin-top:1.5rem">
+      <div class="pf-badge">Projeto 02 · Assistente Financeiro com IA</div>
+      <h3>Controle financeiro <em style="background:linear-gradient(135deg,#2DD4BF,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:normal">pelo WhatsApp</em></h3>
       <p>A ferramenta completa para controlar finanças, definir metas e alcançar a liberdade financeira. Envie texto, áudio ou foto de nota fiscal pelo WhatsApp e a IA captura, classifica e registra tudo automaticamente. No painel, saldo, gráficos e relatórios em tempo real, sem planilhas.</p>
 
-      <!-- SIDE BY SIDE: PHONE + DASHBOARD -->
-      <div style="display:grid;grid-template-columns:200px 1fr;gap:1.5rem;align-items:start">
-
-        <!-- PHONE -->
-        <div class="phone-mock" style="width:200px">
+      <div style="display:grid;grid-template-columns:auto 1fr;gap:2rem;align-items:start;margin-bottom:1.5rem">
+        <!-- WhatsApp phone mockup -->
+        <div class="phone-mock" style="flex-shrink:0">
           <div class="ph-bar">
-            <div class="ph-ava" style="background:linear-gradient(135deg,#10B981,#059669);font-size:.7rem">💰</div>
-            <div><div class="ph-name">Assistente Financeiro</div><div class="ph-on">● online</div></div>
+            <div class="ph-ava" style="background:linear-gradient(135deg,#2DD4BF,#06B6D4);font-size:.85rem">💰</div>
+            <div>
+              <div class="ph-name">Assistente Financeiro</div>
+              <div class="ph-on" style="color:#2DD4BF">● online</div>
+            </div>
           </div>
-          <div class="ph-msgs" id="bk-msgs" style="min-height:240px;max-height:240px"><div class="wtyp" id="bk-typ"><span></span><span></span><span></span></div></div>
-          <div class="ph-input"><div class="ph-inp">Texto, áudio ou foto...</div><div class="ph-send">🎤</div></div>
+          <div class="ph-msgs" id="fin-msgs">
+            <div style="background:#1F2C34;border-radius:6px 6px 6px 2px;padding:.4rem .55rem;font-size:.62rem;color:#E5E7EB;line-height:1.5;align-self:flex-start;max-width:90%">gastei 45 reais no almoço hoje</div>
+            <div style="background:rgba(45,212,191,.15);border:1px solid rgba(45,212,191,.3);border-radius:6px 6px 2px 6px;padding:.5rem .55rem;font-size:.62rem;color:#fff;line-height:1.5;align-self:flex-end;max-width:90%">✅ Registrado!<br><span style="color:rgba(255,255,255,.65);font-size:.58rem">Alimentação · R$45,00 · Hoje<br>Categoria: Almoço</span></div>
+          </div>
+          <div class="ph-input">
+            <div class="ph-inp">Texto, áudio ou foto...</div>
+            <div class="ph-send" style="background:linear-gradient(135deg,#2DD4BF,#06B6D4)">🎤</div>
+          </div>
         </div>
 
-        <!-- DASHBOARD -->
-        <div style="background:#07080D;border-radius:10px;border:1px solid rgba(255,255,255,.07);overflow:hidden">
-          <!-- kpis -->
-          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)">
-            <div style="background:#07080D;padding:.7rem .6rem;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem;color:#10B981;line-height:1" id="bk-saldo">R$0</div><div style="font-size:.47rem;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.05em;margin-top:.2rem">Saldo</div></div>
-            <div style="background:#07080D;padding:.7rem .6rem;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem;color:#4ade80;line-height:1" id="bk-rec">R$0</div><div style="font-size:.47rem;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.05em;margin-top:.2rem">Receitas</div></div>
-            <div style="background:#07080D;padding:.7rem .6rem;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem;color:#FCA5A5;line-height:1" id="bk-gas">R$0</div><div style="font-size:.47rem;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.05em;margin-top:.2rem">Gastos</div></div>
-            <div style="background:#07080D;padding:.7rem .6rem;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem;color:#A5B4FC;line-height:1" id="bk-meta">0%</div><div style="font-size:.47rem;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.05em;margin-top:.2rem">Meta mês</div></div>
+        <!-- Financial dashboard -->
+        <div class="fin-dash" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:1.25rem;min-width:0">
+          <!-- KPIs -->
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;margin-bottom:1.1rem">
+            <div style="background:rgba(255,255,255,.07);border-radius:8px;padding:.6rem .5rem;text-align:center">
+              <div style="font-size:1.05rem;font-weight:700;color:#fff">R$2.340</div>
+              <div style="font-size:.58rem;color:rgba(255,255,255,.45);letter-spacing:.05em;margin-top:2px">SALDO</div>
+            </div>
+            <div style="background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.2);border-radius:8px;padding:.6rem .5rem;text-align:center">
+              <div style="font-size:1.05rem;font-weight:700;color:#4ade80">R$3.800</div>
+              <div style="font-size:.58rem;color:rgba(74,222,128,.6);letter-spacing:.05em;margin-top:2px">RECEITAS</div>
+            </div>
+            <div style="background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.2);border-radius:8px;padding:.6rem .5rem;text-align:center">
+              <div style="font-size:1.05rem;font-weight:700;color:#f87171">R$1.460</div>
+              <div style="font-size:.58rem;color:rgba(248,113,113,.6);letter-spacing:.05em;margin-top:2px">GASTOS</div>
+            </div>
+            <div style="background:rgba(99,102,241,.12);border:1px solid rgba(99,102,241,.25);border-radius:8px;padding:.6rem .5rem;text-align:center">
+              <div style="font-size:1.05rem;font-weight:700;color:#818cf8">67%</div>
+              <div style="font-size:.58rem;color:rgba(129,140,248,.6);letter-spacing:.05em;margin-top:2px">META MÊS</div>
+            </div>
           </div>
-          <!-- charts -->
-          <div style="display:grid;grid-template-columns:1.3fr 1fr;gap:0;border-bottom:1px solid rgba(255,255,255,.06)">
-            <div style="padding:.8rem;border-right:1px solid rgba(255,255,255,.06)">
-              <div style="font-size:.52rem;color:rgba(255,255,255,.25);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.5rem;display:flex;justify-content:space-between;font-family:'Space Grotesk',sans-serif">Por categoria <span style="color:#10B981">Jul</span></div>
-              <div style="display:flex;align-items:flex-end;gap:.25rem;height:44px" id="bk-bars"></div>
-              <div style="display:flex;gap:.5rem;margin-top:.4rem">
-                <div style="display:flex;align-items:center;gap:.2rem;font-size:.44rem;color:rgba(255,255,255,.3)"><div style="width:5px;height:5px;border-radius:1px;background:#6366F1"></div>Alim.</div>
-                <div style="display:flex;align-items:center;gap:.2rem;font-size:.44rem;color:rgba(255,255,255,.3)"><div style="width:5px;height:5px;border-radius:1px;background:#10B981"></div>Trans.</div>
-                <div style="display:flex;align-items:center;gap:.2rem;font-size:.44rem;color:rgba(255,255,255,.3)"><div style="width:5px;height:5px;border-radius:1px;background:#FCD34D"></div>Lazer</div>
-                <div style="display:flex;align-items:center;gap:.2rem;font-size:.44rem;color:rgba(255,255,255,.3)"><div style="width:5px;height:5px;border-radius:1px;background:#FCA5A5"></div>Outros</div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+            <!-- Bar chart POR CATEGORIA -->
+            <div>
+              <div style="font-size:.65rem;color:rgba(255,255,255,.4);letter-spacing:.07em;margin-bottom:.6rem">POR CATEGORIA <span style="color:rgba(255,255,255,.2)">· JUL</span></div>
+              <div style="display:flex;flex-direction:column;gap:.35rem">
+                <div style="display:flex;align-items:center;gap:.5rem">
+                  <div style="font-size:.6rem;color:rgba(255,255,255,.5);width:3.5rem;flex-shrink:0">Alimentação</div>
+                  <div style="flex:1;background:rgba(255,255,255,.08);border-radius:3px;height:7px"><div style="width:62%;height:100%;background:#f87171;border-radius:3px"></div></div>
+                </div>
+                <div style="display:flex;align-items:center;gap:.5rem">
+                  <div style="font-size:.6rem;color:rgba(255,255,255,.5);width:3.5rem;flex-shrink:0">Transporte</div>
+                  <div style="flex:1;background:rgba(255,255,255,.08);border-radius:3px;height:7px"><div style="width:38%;height:100%;background:#818cf8;border-radius:3px"></div></div>
+                </div>
+                <div style="display:flex;align-items:center;gap:.5rem">
+                  <div style="font-size:.6rem;color:rgba(255,255,255,.5);width:3.5rem;flex-shrink:0">Lazer</div>
+                  <div style="flex:1;background:rgba(255,255,255,.08);border-radius:3px;height:7px"><div style="width:25%;height:100%;background:#2DD4BF;border-radius:3px"></div></div>
+                </div>
+                <div style="display:flex;align-items:center;gap:.5rem">
+                  <div style="font-size:.6rem;color:rgba(255,255,255,.5);width:3.5rem;flex-shrink:0">Saúde</div>
+                  <div style="flex:1;background:rgba(255,255,255,.08);border-radius:3px;height:7px"><div style="width:18%;height:100%;background:#fbbf24;border-radius:3px"></div></div>
+                </div>
               </div>
             </div>
-            <div style="padding:.8rem">
-              <div style="font-size:.52rem;color:rgba(255,255,255,.25);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.5rem;font-family:'Space Grotesk',sans-serif">Metas</div>
-              <div style="display:flex;flex-direction:column;gap:.4rem" id="bk-metas"></div>
+
+            <!-- METAS -->
+            <div>
+              <div style="font-size:.65rem;color:rgba(255,255,255,.4);letter-spacing:.07em;margin-bottom:.6rem">METAS</div>
+              <div style="display:flex;flex-direction:column;gap:.4rem">
+                <div>
+                  <div style="display:flex;justify-content:space-between;font-size:.6rem;color:rgba(255,255,255,.55);margin-bottom:3px"><span>Viagem</span><span style="color:#4ade80">25%</span></div>
+                  <div style="background:rgba(255,255,255,.08);border-radius:3px;height:5px"><div style="width:25%;height:100%;background:#4ade80;border-radius:3px"></div></div>
+                </div>
+                <div>
+                  <div style="display:flex;justify-content:space-between;font-size:.6rem;color:rgba(255,255,255,.55);margin-bottom:3px"><span>Reserva</span><span style="color:#818cf8">60%</span></div>
+                  <div style="background:rgba(255,255,255,.08);border-radius:3px;height:5px"><div style="width:60%;height:100%;background:#818cf8;border-radius:3px"></div></div>
+                </div>
+                <div>
+                  <div style="display:flex;justify-content:space-between;font-size:.6rem;color:rgba(255,255,255,.55);margin-bottom:3px"><span>Eletrônico</span><span style="color:#fbbf24">40%</span></div>
+                  <div style="background:rgba(255,255,255,.08);border-radius:3px;height:5px"><div style="width:40%;height:100%;background:#fbbf24;border-radius:3px"></div></div>
+                </div>
+              </div>
             </div>
           </div>
-          <!-- transactions -->
-          <div style="padding:.7rem .8rem">
-            <div style="font-size:.52rem;color:rgba(255,255,255,.25);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.45rem;font-family:'Space Grotesk',sans-serif">Lançamentos via WhatsApp</div>
-            <div id="bk-txns" style="display:flex;flex-direction:column;gap:.22rem"></div>
+
+          <!-- Lançamentos -->
+          <div style="margin-top:.9rem;border-top:1px solid rgba(255,255,255,.07);padding-top:.7rem">
+            <div style="font-size:.6rem;color:rgba(255,255,255,.35);letter-spacing:.07em;margin-bottom:.45rem">LANÇAMENTOS VIA WHATSAPP</div>
+            <div style="display:flex;flex-direction:column;gap:.3rem">
+              <div style="display:flex;justify-content:space-between;align-items:center;font-size:.65rem">
+                <div><span style="color:rgba(255,255,255,.7)">Almoço</span> <span style="color:rgba(255,255,255,.3)">· Alimentação</span></div>
+                <div style="display:flex;gap:.6rem;align-items:center"><span style="color:#f87171;font-weight:600">−R$45</span><span style="color:rgba(255,255,255,.2)">14:32</span></div>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;font-size:.65rem">
+                <div><span style="color:rgba(255,255,255,.7)">Salário</span></div>
+                <div style="display:flex;gap:.6rem;align-items:center"><span style="color:#4ade80;font-weight:600">+R$3.800</span><span style="color:rgba(255,255,255,.2)">09:15</span></div>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;font-size:.65rem">
+                <div><span style="color:rgba(255,255,255,.7)">Uber</span> <span style="color:rgba(255,255,255,.3)">· Transporte</span></div>
+                <div style="display:flex;gap:.6rem;align-items:center"><span style="color:#f87171;font-weight:600">−R$18</span><span style="color:rgba(255,255,255,.2)">08:40</span></div>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;font-size:.65rem">
+                <div><span style="color:rgba(255,255,255,.7)">Netflix</span> <span style="color:rgba(255,255,255,.3)">· Lazer</span></div>
+                <div style="display:flex;gap:.6rem;align-items:center"><span style="color:#f87171;font-weight:600">−R$55</span><span style="color:rgba(255,255,255,.2)">Ontem</span></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="pf-metrics" style="margin-top:1.5rem">
-        <div class="pfm"><div class="pn" style="font-size:1.6rem">💬</div><div class="pl">Texto</div></div>
-        <div class="pfm"><div class="pn" style="font-size:1.6rem">🎤</div><div class="pl">Áudio</div></div>
-        <div class="pfm"><div class="pn" style="font-size:1.6rem">🧾</div><div class="pl">Nota fiscal</div></div>
-        <div class="pfm"><div class="pn" style="font-size:1.6rem">📊</div><div class="pl">Dashboard ao vivo</div></div>
+      <!-- Feature chips -->
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem;margin-top:.25rem">
+        <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:.75rem 1rem;display:flex;align-items:center;gap:.5rem">
+          <span style="font-size:1.1rem">💬</span>
+          <div>
+            <div style="font-size:.6rem;letter-spacing:.08em;color:rgba(255,255,255,.45)">TEXTO</div>
+            <div style="font-size:.7rem;color:rgba(255,255,255,.7)">Mensagens</div>
+          </div>
+        </div>
+        <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:.75rem 1rem;display:flex;align-items:center;gap:.5rem">
+          <span style="font-size:1.1rem">🎙️</span>
+          <div>
+            <div style="font-size:.6rem;letter-spacing:.08em;color:rgba(255,255,255,.45)">ÁUDIO</div>
+            <div style="font-size:.7rem;color:rgba(255,255,255,.7)">Transcrição IA</div>
+          </div>
+        </div>
+        <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:.75rem 1rem;display:flex;align-items:center;gap:.5rem">
+          <span style="font-size:1.1rem">📋</span>
+          <div>
+            <div style="font-size:.6rem;letter-spacing:.08em;color:rgba(255,255,255,.45)">NOTA FISCAL</div>
+            <div style="font-size:.7rem;color:rgba(255,255,255,.7)">OCR automático</div>
+          </div>
+        </div>
+        <div style="background:rgba(45,212,191,.1);border:1px solid rgba(45,212,191,.25);border-radius:10px;padding:.75rem 1rem;display:flex;align-items:center;gap:.5rem">
+          <span style="font-size:1.1rem">📊</span>
+          <div>
+            <div style="font-size:.6rem;letter-spacing:.08em;color:rgba(45,212,191,.7)">DASHBOARD</div>
+            <div style="font-size:.7rem;color:rgba(45,212,191,.9)">Ao vivo</div>
+          </div>
+        </div>
       </div>
     </div>
+
 
     <!-- OTHER PROJECTS -->
     <div class="proj-grid">
@@ -1142,8 +1459,6 @@ footer{background:#07080D;border-top:1px solid rgba(255,255,255,.06);padding:2re
           <li><span style="width:5px;height:5px;border-radius:50%;background:var(--indigo);flex-shrink:0;display:block"></span>Visibilidade total do que o agente faz em tempo real</li>
         </ul>
       </div>
-
-
       <!-- PLACEHOLDER -->
       <div class="proj-card reveal" style="background:var(--bg2);border-style:dashed;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2.5rem">
         <div style="font-size:2.5rem;margin-bottom:1rem">🚀</div>
@@ -1152,6 +1467,7 @@ footer{background:#07080D;border-top:1px solid rgba(255,255,255,.06);padding:2re
         <a href="https://wa.me/5553999235976" target="_blank" rel="noopener" class="btn-primary" style="font-size:.82rem;padding:.75rem 1.8rem">💬 Conversar agora</a>
       </div>
     </div>
+
   </div>
 </section>
 <div class="divider"></div>
@@ -1207,7 +1523,55 @@ footer{background:#07080D;border-top:1px solid rgba(255,255,255,.06);padding:2re
       </div>
       <a href="https://wa.me/5553999235976" target="_blank" rel="noopener" class="btn-primary" style="white-space:nowrap">💬 Quero automatizar</a>
     </div>
-
+    <div style="margin-top:3rem">
+      <div class="eyebrow" style="margin-bottom:1rem">Exemplos por segmento</div>
+      <div class="seg-tabs" id="seg-tabs">
+        <button class="seg-tab active" data-panel="p-adv">Advocacia</button>
+        <button class="seg-tab" data-panel="p-cli">Clínicas</button>
+        <button class="seg-tab" data-panel="p-srv">Serviços</button>
+        <button class="seg-tab" data-panel="p-loc">Negócios Locais</button>
+      </div>
+      <div class="seg-panel active" id="p-adv">
+        <div class="seg-item">Atendimento automático de leads jurídicos</div>
+        <div class="seg-item">Coleta e organização de documentos por cliente</div>
+        <div class="seg-item">Envio e acompanhamento de contratos via ZapSign</div>
+        <div class="seg-item">Follow-up de assinatura pendente</div>
+        <div class="seg-item">Dashboard de atendimentos e contratos</div>
+        <div class="seg-item">Plataforma de gravação automatizada com clientes</div>
+        <div class="seg-item">Avatares de IA para conteúdo sem aparecer em câmera</div>
+        <div class="seg-item">Organização interna de informações por setor</div>
+      </div>
+      <div class="seg-panel" id="p-cli">
+        <div class="seg-item">Atendimento automático de interessados</div>
+        <div class="seg-item">Pré-qualificação e filtro de leads</div>
+        <div class="seg-item">Follow-up de clientes sem resposta</div>
+        <div class="seg-item">Campanhas de captação via Meta Ads</div>
+        <div class="seg-item">Reativação de base de clientes</div>
+        <div class="seg-item">Dashboard de agendamentos e atendimentos</div>
+        <div class="seg-item">Disparos programados para base ativa</div>
+        <div class="seg-item">Organização do histórico de clientes</div>
+      </div>
+      <div class="seg-panel" id="p-srv">
+        <div class="seg-item">Atendimento de orçamentos automaticamente</div>
+        <div class="seg-item">Organização de clientes por etapa</div>
+        <div class="seg-item">Follow-up comercial para oportunidades paradas</div>
+        <div class="seg-item">Envio automático de informações e propostas</div>
+        <div class="seg-item">Controle de oportunidades em dashboard</div>
+        <div class="seg-item">Integração entre WhatsApp, planilhas e sistemas</div>
+        <div class="seg-item">Automação de tarefas internas repetitivas</div>
+        <div class="seg-item">Métricas de vendas por período</div>
+      </div>
+      <div class="seg-panel" id="p-loc">
+        <div class="seg-item">Captação de leads com tráfego pago local</div>
+        <div class="seg-item">Atendimento automático no WhatsApp</div>
+        <div class="seg-item">Campanhas para clientes antigos</div>
+        <div class="seg-item">Mensagens programadas com intervalos inteligentes</div>
+        <div class="seg-item">Reativação de clientes que pararam de comprar</div>
+        <div class="seg-item">Acompanhamento de resultados em dashboard</div>
+        <div class="seg-item">Integração anúncio → WhatsApp → atendimento</div>
+        <div class="seg-item">Organização e segmentação de contatos</div>
+      </div>
+    </div>
   </div>
 </section>
 <div class="divider"></div>
@@ -1314,10 +1678,29 @@ footer{background:#07080D;border-top:1px solid rgba(255,255,255,.06);padding:2re
 <div class="divider"></div>
 
 <!-- BENEFITS -->
-<section class="ba-section" id="resultados">
+<section class="ben-section" id="resultados">
+  <div class="section-wrap">
+    <div class="eyebrow reveal">Resultados buscados</div>
+    <h2 class="section-h reveal">O que essas soluções <em>ajudam a alcançar</em></h2>
+    <div class="ben-grid">
+      <div class="ben-card reveal"><div class="ben-ico" style="background:var(--indigo-l);color:var(--indigo)"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><h4>Atendimento mais rápido</h4><p>Permite que leads sejam atendidos imediatamente, sem depender da disponibilidade da equipe.</p></div>
+      <div class="ben-card reveal d1"><div class="ben-ico" style="background:var(--lime-l);color:var(--lime)"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div><h4>Documentos organizados</h4><p>Facilita o acesso a arquivos de cada cliente em pastas e sistemas estruturados automaticamente.</p></div>
+      <div class="ben-card reveal d2"><div class="ben-ico" style="background:var(--violet-l);color:var(--violet)"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div><h4>Follow-up automático</h4><p>Reduz a perda de oportunidades com acompanhamento automático de leads parados.</p></div>
+      <div class="ben-card reveal d3"><div class="ben-ico" style="background:var(--amber-l);color:var(--amber)"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><h4>Dados centralizados</h4><p>Melhora a visibilidade da operação com métricas atualizadas em dashboards acessíveis.</p></div>
+      <div class="ben-card reveal"><div class="ben-ico" style="background:var(--teal-l);color:var(--teal)"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div><h4>Menos tarefas manuais</h4><p>Potencializa a produtividade ao automatizar atividades repetitivas do dia a dia.</p></div>
+      <div class="ben-card reveal d1"><div class="ben-ico" style="background:var(--rose-l);color:var(--rose)"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><h4>Operação escalável</h4><p>Apoia o crescimento sem necessidade de aumentar a equipe na mesma proporção.</p></div>
+      <div class="ben-card reveal d2"><div class="ben-ico" style="background:var(--indigo-l);color:var(--indigo)"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div><h4>Captação integrada</h4><p>Conecta anúncios, atendimento e follow-up em um único fluxo, do clique ao fechamento.</p></div>
+      <div class="ben-card reveal d3"><div class="ben-ico" style="background:var(--lime-l);color:var(--lime)"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg></div><h4>Equipes mais produtivas</h4><p>Libera tempo para atividades estratégicas, reduzindo a sobrecarga operacional.</p></div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- BEFORE AFTER + DIFF -->
+<section class="ba-section">
   <div class="section-wrap">
     <div class="eyebrow reveal">O que você ganha</div>
-    <h2 class="section-h reveal">O que muda de verdade <em>na sua empresa</em></h2>
+    <h2 class="section-h reveal">O que muda na sua empresa <em>na prática</em></h2>
     <p class="section-sub reveal" style="margin-top:.5rem">Cada solução é projetada para gerar um resultado concreto. Veja o que passa a funcionar diferente depois da implementação.</p>
     <div class="ba-gains">
 
@@ -1332,7 +1715,7 @@ footer{background:#07080D;border-top:1px solid rgba(255,255,255,.06);padding:2re
           <div class="bg-pills">
             <span class="bg-pill-before"><strong>Antes</strong>✕ Manual e dependente da equipe</span>
             <span class="bg-pill-arrow">→</span>
-            <span class="bg-pill-after" style="background:var(--indigo-l);color:var(--indigo)"><strong>Depois</strong> ✓ automático 24h</span>
+            <span class="bg-pill-after"  style="background:var(--indigo-l);color:var(--indigo)"><strong>Depois</strong> ✓ automático 24h</span>
           </div>
         </div>
       </div>
@@ -1348,7 +1731,7 @@ footer{background:#07080D;border-top:1px solid rgba(255,255,255,.06);padding:2re
           <div class="bg-pills">
             <span class="bg-pill-before"><strong>Antes</strong>✕ Follow-up no improviso</span>
             <span class="bg-pill-arrow">→</span>
-            <span class="bg-pill-after" style="background:var(--lime-l);color:var(--lime)"><strong>Depois</strong> ✓ automação inteligente</span>
+            <span class="bg-pill-after"  style="background:var(--lime-l);color:var(--lime)"><strong>Depois</strong> ✓ automação inteligente</span>
           </div>
         </div>
       </div>
@@ -1364,7 +1747,7 @@ footer{background:#07080D;border-top:1px solid rgba(255,255,255,.06);padding:2re
           <div class="bg-pills">
             <span class="bg-pill-before"><strong>Antes</strong>✕ Tudo espalhado</span>
             <span class="bg-pill-arrow">→</span>
-            <span class="bg-pill-after" style="background:var(--teal-l);color:var(--teal)"><strong>Depois</strong> ✓ organizado e acessível</span>
+            <span class="bg-pill-after"  style="background:var(--teal-l);color:var(--teal)"><strong>Depois</strong> ✓ organizado e acessível</span>
           </div>
         </div>
       </div>
@@ -1380,7 +1763,7 @@ footer{background:#07080D;border-top:1px solid rgba(255,255,255,.06);padding:2re
           <div class="bg-pills">
             <span class="bg-pill-before"><strong>Antes</strong>✕ Sem visibilidade</span>
             <span class="bg-pill-arrow">→</span>
-            <span class="bg-pill-after" style="background:var(--amber-l);color:var(--amber)"><strong>Depois</strong> ✓ dashboard ao vivo</span>
+            <span class="bg-pill-after"  style="background:var(--amber-l);color:var(--amber)"><strong>Depois</strong> ✓ dashboard ao vivo</span>
           </div>
         </div>
       </div>
@@ -1396,7 +1779,7 @@ footer{background:#07080D;border-top:1px solid rgba(255,255,255,.06);padding:2re
           <div class="bg-pills">
             <span class="bg-pill-before"><strong>Antes</strong>✕ Enviados manualmente</span>
             <span class="bg-pill-arrow">→</span>
-            <span class="bg-pill-after" style="background:var(--violet-l);color:var(--violet)"><strong>Depois</strong> ✓ 100% automático</span>
+            <span class="bg-pill-after"  style="background:var(--violet-l);color:var(--violet)"><strong>Depois</strong> ✓ 100% automático</span>
           </div>
         </div>
       </div>
@@ -1412,39 +1795,7 @@ footer{background:#07080D;border-top:1px solid rgba(255,255,255,.06);padding:2re
           <div class="bg-pills">
             <span class="bg-pill-before"><strong>Antes</strong>✕ Limitado pela equipe</span>
             <span class="bg-pill-arrow">→</span>
-            <span class="bg-pill-after" style="background:var(--indigo-l);color:var(--indigo)"><strong>Depois</strong> ✓ operação escalável</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="ba-gain reveal d2" style="--gain-c1:rgba(101,163,13,.04);--gain-border:rgba(101,163,13,.2)">
-        <div class="bg-icon" style="background:var(--lime-l);color:var(--lime)">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
-        </div>
-        <div class="bg-body">
-          <div class="bg-label" style="color:var(--lime)">Produtividade</div>
-          <div class="bg-title">Sua equipe para de perder tempo com tarefas repetitivas</div>
-          <div class="bg-desc">As automações assumem o trabalho operacional e sua equipe foca no que realmente gera resultado para o negócio.</div>
-          <div class="bg-pills">
-            <span class="bg-pill-before"><strong>Antes</strong>✕ Equipe sobrecarregada</span>
-            <span class="bg-pill-arrow">→</span>
-            <span class="bg-pill-after" style="background:var(--lime-l);color:var(--lime)"><strong>Depois</strong> ✓ foco no que importa</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="ba-gain reveal d3" style="--gain-c1:rgba(13,148,136,.04);--gain-border:rgba(13,148,136,.2)">
-        <div class="bg-icon" style="background:var(--teal-l);color:var(--teal)">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
-        </div>
-        <div class="bg-body">
-          <div class="bg-label" style="color:var(--teal)">Captação</div>
-          <div class="bg-title">Do anúncio ao cliente fechado, tudo conectado em um fluxo</div>
-          <div class="bg-desc">Tráfego pago, atendimento automático e follow-up integrados. O lead entra e o sistema conduz até o fechamento.</div>
-          <div class="bg-pills">
-            <span class="bg-pill-before"><strong>Antes</strong>✕ Processos separados</span>
-            <span class="bg-pill-arrow">→</span>
-            <span class="bg-pill-after" style="background:var(--teal-l);color:var(--teal)"><strong>Depois</strong> ✓ fluxo único integrado</span>
+            <span class="bg-pill-after"  style="background:var(--indigo-l);color:var(--indigo)"><strong>Depois</strong> ✓ operação escalável</span>
           </div>
         </div>
       </div>
@@ -1592,7 +1943,7 @@ footer{background:#07080D;border-top:1px solid rgba(255,255,255,.06);padding:2re
     <a href="https://wa.me/5553999235976" class="btn-cta">💬 Quero automatizar a minha empresa</a>
     <div class="cta-contacts">
       <span>WhatsApp: <a href="https://wa.me/5553999235976">(53) 99923-5976</a></span>
-      <span>E-mail: <a href="mailto:agencia.avoryn@gmail.com">agencia.avoryn@gmail.com</a></span>
+      <span>E-mail: <a href="mailto:mntrabalho1@gmail.com">mntrabalho1@gmail.com</a></span>
     </div>
   </div>
 </section>
@@ -1935,91 +2286,8 @@ const projObs=new IntersectionObserver(entries=>{
 },{threshold:.3});
 ['anim-fu','anim-da','anim-disp'].forEach(id=>{const el=document.getElementById(id);if(el)projObs.observe(el);});
 
-// auto-init Bankel on scroll
-const bkObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){initBankelWA();initBankelDash();bkObs.unobserve(e.target);}});},{threshold:.2});
-const bkMsgsEl=document.getElementById('bk-msgs');if(bkMsgsEl)bkObs.observe(bkMsgsEl.closest('.proj-featured')||bkMsgsEl);
-
-function initBankelWA(){
-  const msgs=[
-    {f:'r',t:'gastei 45 reais no almoço hoje'},
-    {f:'s',t:'✅ Registrado!\n🍽️ Alimentação · R$45,00\n📅 Hoje · Categoria: Almoço'},
-    {f:'r',aud:true,t:'Áudio · 0:08'},
-    {f:'s',t:'🎤 Áudio processado!\n⛽ Combustível · R$120,00\nCategoria: Transporte'},
-    {f:'r',img:true,t:'🧾 nota_fiscal.jpg'},
-    {f:'s',t:'🧾 Nota fiscal lida!\n🛒 Supermercado · R$213,40\nItens identificados e registrados'},
-    {f:'r',t:'quanto gastei esse mês?'},
-    {f:'s',t:'📊 Julho:\n💸 Gastos: R$1.460,00\n💰 Receitas: R$3.800,00\n✅ Saldo: R$2.340,00'},
-  ];
-  const msgsEl=document.getElementById('bk-msgs'),typ=document.getElementById('bk-typ');
-  if(!msgsEl||!typ)return;
-  msgsEl.innerHTML='';msgsEl.appendChild(typ);
-  const delays=[0,1600,3400,5200,6800,8600,10200,12000];
-  msgs.forEach((m,i)=>{
-    setTimeout(()=>{
-      typ.style.opacity='1';
-      setTimeout(()=>{
-        typ.style.opacity='0';
-        const el=document.createElement('div');el.className='wm '+m.f;
-        if(m.aud){
-          el.classList.add('aud');
-          const wid='bkwv'+i;
-          el.innerHTML=`<span>▶</span><div class="wav"><div class="wav-fill" id="${wid}"></div></div><span>${m.t}</span><div class="t">agora</div>`;
-          msgsEl.insertBefore(el,typ);el.classList.add('v');
-          setTimeout(()=>{const wf=document.getElementById(wid);if(wf)wf.style.width='100%';},100);
-        } else if(m.img){
-          el.innerHTML=`<div style="background:rgba(255,255,255,.08);border-radius:6px;padding:.4rem .6rem;font-size:.6rem;display:flex;align-items:center;gap:.35rem"><span>🧾</span><span>${m.t}</span></div><div class="t">agora</div>`;
-          msgsEl.insertBefore(el,typ);setTimeout(()=>el.classList.add('v'),40);
-        } else {
-          el.innerHTML=m.t.replace(/\n/g,'<br>')+'<div class="t">agora</div>';
-          msgsEl.insertBefore(el,typ);setTimeout(()=>el.classList.add('v'),40);
-        }
-        msgsEl.scrollTop=msgsEl.scrollHeight;
-      },500);
-    },delays[i]);
-  });
-}
-
-function initBankelDash(){
-  // KPI counters
-  function countTo(id,prefix,target,dur){
-    const el=document.getElementById(id);if(!el)return;
-    let c=0;const step=target/50;
-    const ti=setInterval(()=>{c+=step;if(c>=target){el.textContent=prefix+(target>=1000?'R$'+target.toLocaleString('pt-BR'):target+'%');clearInterval(ti);}
-    else el.textContent=prefix+(target>=100?'R$'+Math.floor(c).toLocaleString('pt-BR'):Math.floor(c)+'%');},dur/50);
-  }
-  setTimeout(()=>{
-    const _s=document.getElementById('bk-saldo'),_r=document.getElementById('bk-rec'),_g=document.getElementById('bk-gas'),_m=document.getElementById('bk-meta');
-    if(!_s||!_r||!_g||!_m)return;
-    _s.textContent='R$0';_r.textContent='R$0';_g.textContent='R$0';_m.textContent='0%';
-    let s=0,r=0,g=0,m=0;
-    const ti=setInterval(()=>{
-      s+=2340/50;r+=3800/50;g+=1460/50;m+=68/50;
-      const se=document.getElementById('bk-saldo'),re=document.getElementById('bk-rec'),ge=document.getElementById('bk-gas'),me=document.getElementById('bk-meta');
-      if(se)se.textContent='R$'+Math.min(Math.floor(s),2340).toLocaleString('pt-BR');
-      if(re)re.textContent='R$'+Math.min(Math.floor(r),3800).toLocaleString('pt-BR');
-      if(ge)ge.textContent='R$'+Math.min(Math.floor(g),1460).toLocaleString('pt-BR');
-      if(me)me.textContent=Math.min(Math.floor(m),68)+'%';
-      if(s>=2340)clearInterval(ti);
-    },20);
-  },300);
-  // bar chart
-  const bars=[{h:72,c:'#6366F1'},{h:45,c:'#10B981'},{h:28,c:'#FCD34D'},{h:55,c:'#FCA5A5'}];
-  const barsEl=document.getElementById('bk-bars');
-  if(barsEl){barsEl.innerHTML='';bars.forEach((b,i)=>{const el=document.createElement('div');el.style.cssText=`flex:1;background:${b.c}33;border-radius:3px 3px 0 0;height:3px;transition:height .9s ease ${i*.1}s`;barsEl.appendChild(el);setTimeout(()=>el.style.height=b.h+'%',200);});}
-  // metas
-  const metasEl=document.getElementById('bk-metas');
-  const metas=[{l:'Viagem',p:25,c:'#10B981'},{l:'Reserva',p:60,c:'#6366F1'},{l:'Eletrônico',p:40,c:'#FCD34D'}];
-  if(metasEl){metasEl.innerHTML='';metas.forEach(m=>{const el=document.createElement('div');el.innerHTML=`<div style="display:flex;justify-content:space-between;margin-bottom:.18rem"><span style="font-size:.55rem;color:rgba(255,255,255,.45);font-family:'Space Grotesk',sans-serif">${m.l}</span><span style="font-size:.55rem;color:${m.c};font-weight:700">${m.p}%</span></div><div style="height:5px;background:rgba(255,255,255,.06);border-radius:100px;overflow:hidden"><div style="height:100%;background:${m.c};border-radius:100px;width:0;transition:width 1.2s ease" class="bk-mbar"></div></div>`;metasEl.appendChild(el);setTimeout(()=>el.querySelector('.bk-mbar').style.width=m.p+'%',400);});}
-  // transactions
-  const txnsEl=document.getElementById('bk-txns');
-  const txns=[
-    {ico:'🍽️',desc:'Almoço · Alimentação',val:'-R$45',col:'#FCA5A5',t:'14:32'},
-    {ico:'💰',desc:'Salário',val:'+R$3.800',col:'#4ade80',t:'09:15'},
-    {ico:'🚌',desc:'Uber · Transporte',val:'-R$18',col:'#FCA5A5',t:'08:40'},
-    {ico:'🎬',desc:'Netflix · Lazer',val:'-R$55',col:'#FCA5A5',t:'Ontem'},
-  ];
-  if(txnsEl){txnsEl.innerHTML='';txns.forEach((tx,i)=>{const el=document.createElement('div');el.style.cssText=`display:flex;align-items:center;gap:.5rem;padding:.28rem .3rem;border-radius:4px;opacity:0;transition:opacity .3s ${i*.08}s;border-bottom:1px solid rgba(255,255,255,.04)`;el.innerHTML=`<span style="font-size:.75rem">${tx.ico}</span><span style="flex:1;font-size:.55rem;color:rgba(255,255,255,.5);font-family:'Space Grotesk',sans-serif">${tx.desc}</span><span style="font-size:.58rem;font-weight:700;color:${tx.col};font-family:'Space Grotesk',sans-serif">${tx.val}</span><span style="font-size:.48rem;color:rgba(255,255,255,.25)">${tx.t}</span>`;txnsEl.appendChild(el);setTimeout(()=>el.style.opacity='1',i*100+500);});}
-}
+// static inits
+setTimeout(initGravacao,800);
 setTimeout(initAvatar,800);
 
 // Landing page metrics counter
@@ -2031,6 +2299,83 @@ function initLPMetrics(){
 }
 const lpObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){initLPMetrics();lpObs.unobserve(e.target);}});},{threshold:.4});
 const lpEl=document.getElementById('lp-conv');if(lpEl)lpObs.observe(lpEl.closest('.proj-card')||lpEl);
+
+/* ── TRÁFEGO PAGO ANIMATION ── */
+function initTrafAnim(){
+  const stage=document.getElementById('traf-people');
+  if(!stage)return;
+  const dots=['td1','td2','td3','td4','td5','td6'];
+  const people=['tp1','tp2','tp3','tp4','tp5','tp6','tp7','tp8','tp9'];
+  const states=[
+    {id:'tp1',state:'seen',delay:800},
+    {id:'tp2',state:'seen',delay:1200},
+    {id:'tp3',state:'seen',delay:600},
+    {id:'tp4',state:'lead',delay:1800},
+    {id:'tp5',state:'lead',delay:2200},
+    {id:'tp6',state:'seen',delay:1500},
+    {id:'tp7',state:'client',delay:2800},
+    {id:'tp8',state:'lead',delay:2400},
+    {id:'tp9',state:'client',delay:3200}
+  ];
+  const svg=document.getElementById('traf-svg');
+  if(!svg)return;
+
+  function animDot(id,cy,color,startDelay,duration){
+    const el=document.getElementById(id);
+    if(!el)return;
+    el.setAttribute('cy',cy);
+    el.setAttribute('fill',color);
+    setTimeout(()=>{
+      let start=null;
+      el.style.opacity='1';
+      function step(ts){
+        if(!start)start=ts;
+        const p=Math.min((ts-start)/duration,1);
+        const x=p*300;
+        el.setAttribute('cx',x);
+        if(p<1)requestAnimationFrame(step);
+        else{el.style.opacity='0';el.setAttribute('cx','0');}
+      }
+      requestAnimationFrame(step);
+    },startDelay);
+  }
+
+  function runCycle(){
+    // reset all
+    people.forEach(id=>{
+      const el=document.getElementById(id);
+      if(el){el.className='tp';}
+    });
+    // animate dots
+    animDot('td1',10,'#fb923c',100,900);
+    animDot('td2',30,'#fb923c',300,850);
+    animDot('td3',50,'#fb923c',500,950);
+    animDot('td4',10,'#818cf8',1400,800);
+    animDot('td5',30,'#818cf8',1600,850);
+    animDot('td6',50,'#4ade80',2500,800);
+    // apply person states
+    states.forEach(({id,state,delay})=>{
+      setTimeout(()=>{
+        const el=document.getElementById(id);
+        if(el)el.className='tp '+state;
+      },delay);
+    });
+  }
+
+  // run on intersection
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        runCycle();
+        setInterval(runCycle,5000);
+        obs.unobserve(e.target);
+      }
+    });
+  },{threshold:.3});
+  const block=document.querySelector('.traf-block');
+  if(block)obs.observe(block);
+}
+initTrafAnim();
 </script>
 
 <!-- FLOATING WHATSAPP -->
